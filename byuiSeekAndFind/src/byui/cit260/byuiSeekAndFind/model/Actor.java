@@ -5,8 +5,8 @@
  */
 /*
 * Names:
-* Breena Jones
-* Caliesha Stimpson
+* Breena Jones, ItemScene, Scene, TrapScene, Question
+* Caliesha Stimpson, Map, Item, Location
 */
 package byui.cit260.byuiSeekAndFind.model;
 
