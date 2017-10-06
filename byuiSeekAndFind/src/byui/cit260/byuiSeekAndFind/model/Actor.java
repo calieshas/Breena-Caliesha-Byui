@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+* Names:
+* Breena Jones
+* Caliesha Stimpson
+*/
 package byui.cit260.byuiSeekAndFind.model;
 
 import java.awt.Point;
