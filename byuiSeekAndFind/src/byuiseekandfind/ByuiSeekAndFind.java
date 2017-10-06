@@ -5,6 +5,8 @@
  */
 package byuiseekandfind;
 
+import byui.cit260.byuiSeekAndFind.model.Player;
+
 /**
  *
  * @author breen
@@ -15,7 +17,13 @@ public class ByuiSeekAndFind {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Fred Flints");
+        playerOne.setBestTime(7.00);
+        
+        System.out.println(playerOne.toString());
+        
     }
     
 }
