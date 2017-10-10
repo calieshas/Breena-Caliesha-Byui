@@ -16,8 +16,17 @@ public class ItemScene implements Serializable{
     
     private String foundItem;
     private Question question;
+    private Item item;
 
     public ItemScene() {
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public Question getQuestion() {

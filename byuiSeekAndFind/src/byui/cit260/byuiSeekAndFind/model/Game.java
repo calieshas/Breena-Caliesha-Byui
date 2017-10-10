@@ -6,6 +6,7 @@
 package byui.cit260.byuiSeekAndFind.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,8 +19,26 @@ public class Game implements Serializable {
     private double totalTime;
     private Player player;
     private Player[] players = new Player[1];
+    private Map map;
+    private ArrayList <Item> items = new ArrayList<Item>();
     
     public Game() {
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public Player getPlayer() {
