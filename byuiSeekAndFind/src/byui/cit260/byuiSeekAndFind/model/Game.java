@@ -21,8 +21,17 @@ public class Game implements Serializable {
     private Player[] players = new Player[1];
     private Map map;
     private ArrayList <Item> items = new ArrayList<Item>();
+    private ArrayList <Actor> actors = new ArrayList<Actor>();
     
     public Game() {
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
     }
 
     public ArrayList<Item> getItems() {

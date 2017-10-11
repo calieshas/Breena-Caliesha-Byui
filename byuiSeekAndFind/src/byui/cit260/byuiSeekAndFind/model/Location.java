@@ -18,11 +18,18 @@ public class Location implements Serializable {
     private String column;
     private String visited;
     private String amountRemaining;
+    private Scene scene;
 
     public Location() {
     }
 
-    
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
     
     public String getRow() {
         return row;

@@ -6,6 +6,7 @@
 package byui.cit260.byuiSeekAndFind.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,8 +17,17 @@ public class Scene implements Serializable{
     
     private String symbol;
     private String description;
+    private ArrayList<Location> locations = new ArrayList<Location>();
 
     public Scene() {
+    }
+
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
     }
 
     public String getSymbol() {

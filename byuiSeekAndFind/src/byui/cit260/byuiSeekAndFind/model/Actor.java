@@ -11,6 +11,7 @@
 package byui.cit260.byuiSeekAndFind.model;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,11 +28,30 @@ public enum Actor {
     private Point coordinates;
     private String itemsCollected;
     private String scenesVisited;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private Game game;
     
     Actor(String name, String description, Point coordinates) {
         this.name = name;
         this.description = description;
         this.coordinates = coordinates;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
     }
 
     public String getName() {
