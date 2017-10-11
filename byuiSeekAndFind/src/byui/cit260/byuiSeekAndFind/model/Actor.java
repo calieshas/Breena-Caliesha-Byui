@@ -26,10 +26,9 @@ public enum Actor {
     private String name;
     private String description;
     private Point coordinates;
-    private String itemsCollected;
-    private String scenesVisited;
-    private ArrayList<Player> players = new ArrayList<Player>();
-    private Game game;
+    private ArrayList<Scene> scenesVisited = new ArrayList<>();
+    private ArrayList<Item> itemsCollected = new ArrayList<>();
+    private ArrayList<Item> itemsNeeded = new ArrayList<>();
     
     Actor(String name, String description, Point coordinates) {
         this.name = name;
@@ -37,23 +36,8 @@ public enum Actor {
         this.coordinates = coordinates;
     }
 
-    public Game getGame() {
-        return game;
-    }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-    
-
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(ArrayList<Player> players) {
-        this.players = players;
-    }
-
+   
     public String getName() {
         return name;
     }
@@ -66,13 +50,18 @@ public enum Actor {
         return coordinates;
     }
 
-    public String getItemsCollected() {
+    public ArrayList<Scene> getScenesVisited() {
+        return scenesVisited;
+    }
+
+    public ArrayList<Item> getItemsCollected() {
         return itemsCollected;
     }
 
-    public String getScenesVisited() {
-        return scenesVisited;
+    public ArrayList<Item> getItemsNeeded() {
+        return itemsNeeded;
     }
+
 
     @Override
     public String toString() {

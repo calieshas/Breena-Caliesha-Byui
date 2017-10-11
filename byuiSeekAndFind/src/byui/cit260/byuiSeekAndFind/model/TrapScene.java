@@ -12,18 +12,18 @@ import java.util.Objects;
  *
  * @author breen
  */
-public class TrapScene implements Serializable{
+public class TrapScene extends Scene implements Serializable{
     
-    private String question;
+    private Question question;
 
     public TrapScene() {
     }
 
-    public String getQuestion() {
+    public Question getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public void setQuestion(Question question) {
         this.question = question;
     }
 

@@ -17,17 +17,8 @@ public class Scene implements Serializable{
     
     private String symbol;
     private String description;
-    private ArrayList<Location> locations = new ArrayList<Location>();
 
     public Scene() {
-    }
-
-    public ArrayList<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(ArrayList<Location> locations) {
-        this.locations = locations;
     }
 
     public String getSymbol() {

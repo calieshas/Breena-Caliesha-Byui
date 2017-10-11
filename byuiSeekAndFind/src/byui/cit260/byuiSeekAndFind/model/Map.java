@@ -19,17 +19,17 @@ public class Map implements Serializable {
     private String description;
     private double rowCount;
     private double columnCount;
-    private ArrayList<Game> games = new ArrayList<Game>();
+    private Location[][] locations;
     
     public Map() {
     }
 
-    public ArrayList<Game> getGames() {
-        return games;
+    public Location[][] getLocations() {
+        return locations;
     }
 
-    public void setGames(ArrayList<Game> games) {
-        this.games = games;
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     public String getDescription() {

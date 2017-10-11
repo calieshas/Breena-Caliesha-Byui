@@ -17,28 +17,10 @@ public class Item implements Serializable {
     private String objectType; 
     private double numberInPossesion;
     private String objectsNeeded;
-    private Game game;
-    private ArrayList<ItemScene> itemScenes = new ArrayList<ItemScene>();
 
     public Item() {
     }
 
-    public ArrayList<ItemScene> getItemScenes() {
-        return itemScenes;
-    }
-
-    public void setItemScenes(ArrayList<ItemScene> itemScenes) {
-        this.itemScenes = itemScenes;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-    
     public String getObjectType() {
         return objectType;
     }

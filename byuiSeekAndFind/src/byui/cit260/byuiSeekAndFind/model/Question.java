@@ -17,19 +17,10 @@ public class Question implements Serializable{
     
     private String questionType;
     private String answer;
-    private ArrayList<TrapScene> trapScenes = new ArrayList<TrapScene>();
 
     public Question() {
     }
-
-    public ArrayList<TrapScene> getTrapScenes() {
-        return trapScenes;
-    }
-
-    public void setTrapScenes(ArrayList<TrapScene> trapScenes) {
-        this.trapScenes = trapScenes;
-    }
-
+    
     public String getQuestionType() {
         return questionType;
     }
