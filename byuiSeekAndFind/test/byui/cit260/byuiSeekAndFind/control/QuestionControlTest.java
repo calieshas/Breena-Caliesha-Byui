@@ -189,4 +189,91 @@ public class QuestionControlTest {
         assertEquals(expResult, result, 0.0001);
     }
     
+    
+    @Test
+    public void testCalcQuestionAnswerCost() {
+        System.out.println("calcQuestionAnswerCost");
+        
+        // ---- Test Case 1 -----
+        System.out.println("\tTest case 1");
+        double numberStudent = 5.0;
+        double numberTextbook = 4.0;
+        double cost = 50.0;
+        double answer = 1000;
+        double expResult = 1;
+        double result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 2 -----
+        System.out.println("\tTest case 2");
+        numberStudent = 5.0;
+        numberTextbook = 4.0;
+        cost = 50.0;
+        answer = 200;
+        expResult = 0;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 3 -----
+        System.out.println("\tTest case 3");
+        numberStudent = -1.0;
+        numberTextbook = 4.0;
+        cost = 50.0;
+        answer = -200;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 4 -----
+        System.out.println("\tTest case 4");
+        numberStudent = 5.0;
+        numberTextbook = -1.0;
+        cost = 50.0;
+        answer = -250;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 5 -----
+        System.out.println("\tTest case 5");
+        numberStudent = 5.0;
+        numberTextbook = 4.0;
+        cost = -1.0;
+        answer = -20;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 6 -----
+        System.out.println("\tTest case 6");
+        numberStudent = 0.0;
+        numberTextbook = 4.0;
+        cost = 50.0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 7 -----
+        System.out.println("\tTest case 7");
+        numberStudent = 5.0;
+        numberTextbook = 0.0;
+        cost = 50.0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 8 -----
+        System.out.println("\tTest case 8");
+        numberStudent = 5.0;
+        numberTextbook = 4.0;
+        cost = 0.0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
+        assertEquals(expResult, result, 0.0001);
+    }
+    
+    
 }

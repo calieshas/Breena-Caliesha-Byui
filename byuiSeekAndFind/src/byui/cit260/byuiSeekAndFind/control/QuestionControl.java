@@ -47,6 +47,22 @@ public class QuestionControl {
         return 0;
     }
 
-
+    public static double calcQuestionAnswerCost( double numberStudent, double numberTextbook, double cost, double answer) {
+        
+                if (numberStudent < 0) {
+                    return -1;
+                    }
+                if (numberTextbook < 0) {
+                    return -1;
+                    }
+                if (cost < 0) {
+                    return -1;
+                    }
+            double totalCost = numberStudent * numberTextbook * cost;
+		if (answer == totalCost) {
+                    return 1;
+                    }
+                    return 0;
+            }
     
 }
