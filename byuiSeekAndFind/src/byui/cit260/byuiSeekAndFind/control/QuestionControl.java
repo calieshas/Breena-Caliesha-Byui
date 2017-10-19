@@ -26,6 +26,25 @@ public class QuestionControl {
             return 1;
         }
         return 0;
+        
+    }
+    
+    public static double calcQuestionAnswerVolume(double height, double length, 
+            double width, double answer) {
+        if (height < 0 ) {
+            return -1;
+        }
+        if (length < 0) {
+            return -1;
+        }
+        if (width < 0) {
+            return -1;
+        }
+        double volume = width*height*length;
+        if (answer == volume){
+            return 1;
+        }
+        return 0;
     }
 
 

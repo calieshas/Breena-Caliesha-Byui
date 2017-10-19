@@ -104,5 +104,89 @@ public class QuestionControlTest {
         result = QuestionControl.calcQuestionAnswer(height, base1, base2, answer);
         assertEquals(expResult, result, 0.0001);
     }
+    @Test
+    public void testCalcQuestionAnswerVolume() {
+        System.out.println("calcQuestionAnswerVolume");
+        
+        // ---- Test Case 1 -----
+        System.out.println("\tTest case 1");
+        double height = 5.0;
+        double length = 3.0;
+        double width = 2.0;
+        double answer = 30;
+        double expResult = 1;
+        double result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 2 -----
+        System.out.println("\tTest case 2");
+        height = 5.0;
+        length = 3.0;
+        width = 2.0;
+        answer = 10;
+        expResult = 0;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 3 -----
+        System.out.println("\tTest case 3");
+        height = -1;
+        length = 3.0;
+        width = 2.0;
+        answer = 10;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 4 -----
+        System.out.println("\tTest case 4");
+        height = 5.0;
+        length = -1;
+        width = 2.0;
+        answer = 10;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 5 -----
+        System.out.println("\tTest case 5");
+        height = 5.0;
+        length = 3.0;
+        width = -1;
+        answer = 10;
+        expResult = -1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 6 -----
+        System.out.println("\tTest case 6");
+        height = 0;
+        length = 3.0;
+        width = 2.0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 7 -----
+        System.out.println("\tTest case 7");
+        height = 5.0;
+        length = 0;
+        width = 2.0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+        
+        // ---- Test Case 8 -----
+        System.out.println("\tTest case 8");
+        height = 5.0;
+        length = 3.0;
+        width = 0;
+        answer = 0;
+        expResult = 1;
+        result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result, 0.0001);
+    }
     
 }
