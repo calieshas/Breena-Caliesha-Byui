@@ -5,6 +5,10 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
+import byui.cit260.byuiSeekAndFind.control.GameControl;
+import byui.cit260.byuiSeekAndFind.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author breen
@@ -27,22 +31,44 @@ public class StartProgramView {
 
 
     private String[] getInputs() {
-        System.out.println("**** getInputs() called ***");
-        
+
         String[] inputs = new String[1];
-        inputs[0] = "testInput";
+        System.out.println("Welcome to BYU-Idaho Seek and Find");
+       
+        boolean valid = false;
+        while(!valid) {
+       
+            Scanner userInputs = new Scanner(System.in);
+            String firstName;
+            System.out.println("Enter the player's name");
+            firstName = userInputs.nextLine().trim();
+
+            if(firstName.length() < 2) {
+                System.out.println("You must enter a value.");
+                continue;
+            }
+            inputs[0] = firstName;
+            valid = true;
+        }
         
         return inputs;
-    }
+        }
 
     private boolean doAction(String[] inputs) {
-        System.out.println("**** doAction() called ***");
-        System.out.println("\tinputs = " + inputs[0]);
-        
+        String playersName = inputs[0];
+        Player player = GameControl.savePlayer(playersName);
+            if (player == null) {
+                System.out.println("Could not creat the player. " + "\nEnter a different name.");
+                return false;
+            }
+            
+        System.out.println("================================================= "
+         + "\nWelcome to the game " + playersName + "\nWe hope you have a lot of fun!"
+         + "\n================================================= ");
+         
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView(); 
         return true;
-    }
-
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 }

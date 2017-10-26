@@ -5,10 +5,23 @@
  */
 package byui.cit260.byuiSeekAndFind.control;
 
+import byui.cit260.byuiSeekAndFind.model.Player;
+import byuiseekandfind.ByuiSeekAndFind;
+
+
 /**
  *
  * @author breen
  */
 public class GameControl {
-    
+    public static Player savePlayer(String name) {
+
+        if(name == null || name.length() < 1) {
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        ByuiSeekAndFind.setPlayer(player);
+        return player;
+    }
 }

@@ -14,6 +14,7 @@ import java.util.Objects;
  * @author breen
  */
 public class Player implements Serializable{
+
     
     private String name;
     private double bestTime;

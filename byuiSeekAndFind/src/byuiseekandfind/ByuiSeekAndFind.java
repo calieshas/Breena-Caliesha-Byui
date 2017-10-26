@@ -5,7 +5,9 @@
  */
 package byuiseekandfind;
 
+import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Player;
+import byui.cit260.byuiSeekAndFind.view.StartProgramView;
 
 /**
  *
@@ -16,14 +18,30 @@ public class ByuiSeekAndFind {
     /**
      * @param args the command line arguments
      */
+    private static Game currentGame = null;
+    private static Player player = null;
+    
     public static void main(String[] args) {
-        Player playerOne = new Player();
         
-        playerOne.setName("Fred Flints");
-        playerOne.setBestTime(7.00);
-        
-        System.out.println(playerOne.toString());
-        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
     }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        ByuiSeekAndFind.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        ByuiSeekAndFind.player = player;
+    }
+    
     
 }
