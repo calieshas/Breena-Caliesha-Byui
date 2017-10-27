@@ -52,16 +52,12 @@ public class HelpMenuView {
         return inputs;
     }
 
-    
-    
-
-
     private boolean doAction(String[] inputs) {
-        String menuItem = inputs[0];
-        menuItem.toUpperCase();
+        String helpItem = inputs[0];
+        helpItem.toUpperCase();
 // to upper case not working ask on monday! 
 
-         switch (menuItem) {
+         switch (helpItem) {
              case "G" : gameGoal();
                 break;
              case "M" : howMove();

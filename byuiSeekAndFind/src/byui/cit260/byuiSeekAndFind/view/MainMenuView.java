@@ -5,6 +5,8 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
+import byui.cit260.byuiSeekAndFind.control.GameControl;
+import byuiseekandfind.ByuiSeekAndFind;
 import java.util.Scanner;
 
 /**
@@ -62,7 +64,7 @@ public class MainMenuView {
                 break;
              case "H" : getHelp();
                 break;
-             case "S" : saveGame();
+             case "S" : restartGame();
                 break;
              case "E" : return true;
              default : System.out.println("Invalid menu item.");
@@ -71,7 +73,9 @@ public class MainMenuView {
     }
 
     private void startGame() {
-       System.out.println("start game called");
+        GameControl.createNewGame(ByuiSeekAndFind.getPlayer());
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView();
     }
 
     private void getHelp() {
@@ -79,8 +83,9 @@ public class MainMenuView {
         helpMenuView.displayHelpMenuView(); 
     }
 
-    private void saveGame() {
-        System.out.println("save game called");
+    private void restartGame() {
+        RestartGameView restartGameView = new RestartGameView();
+        restartGameView.displayRestartGameView(); 
     }
     
     
