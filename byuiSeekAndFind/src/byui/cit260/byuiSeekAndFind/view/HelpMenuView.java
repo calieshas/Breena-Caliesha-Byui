@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author calie
  */
 public class HelpMenuView {
-       public void HelpMenuView() {
+       public void displayHelpMenuView() {
         boolean endView = false;
         do {
             String[] inputs = this.getInputs();
@@ -83,9 +83,9 @@ public class HelpMenuView {
         System.out.println("estimate items called");
     }
 
-    void displayHelpMenuView() {
-        System.out.println("display help menu view called");
-            }
+//    void displayHelpMenuView() {
+//        System.out.println("display help menu view called");
+//            }
     
     
 }
