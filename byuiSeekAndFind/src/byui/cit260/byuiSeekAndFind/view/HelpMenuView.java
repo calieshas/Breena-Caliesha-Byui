@@ -54,8 +54,7 @@ public class HelpMenuView {
 
     private boolean doAction(String[] inputs) {
         String helpItem = inputs[0];
-        helpItem.toUpperCase();
-// to upper case not working ask on monday! 
+        helpItem = helpItem.toUpperCase(); 
 
          switch (helpItem) {
              case "G" : gameGoal();
@@ -83,9 +82,5 @@ public class HelpMenuView {
         System.out.println("estimate items called");
     }
 
-//    void displayHelpMenuView() {
-//        System.out.println("display help menu view called");
-//            }
-    
     
 }

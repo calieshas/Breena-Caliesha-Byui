@@ -56,8 +56,7 @@ public class MainMenuView {
 
     private boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem.toUpperCase();
-// to upper case not working ask on monday! 
+        menuItem = menuItem.toUpperCase(); 
 
          switch (menuItem) {
              case "G" : startGame();
