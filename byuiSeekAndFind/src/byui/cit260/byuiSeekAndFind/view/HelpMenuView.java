@@ -81,6 +81,5 @@ public class HelpMenuView {
     private void estimateItems() {
         System.out.println("estimate items called");
     }
-
     
 }
