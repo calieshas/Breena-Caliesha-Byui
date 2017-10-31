@@ -29,8 +29,11 @@ class GameMenuView {
 
     private String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nG - What is the goal of the game?" +
-                "\nM - How to move" + "\nE - Estimating the amount of items in game" + "\nQ - Quit");
+        System.out.println("Choose one of the following:" + "\nV - View Map" +
+                "\nI - View list of items" + "\nA - View list of actors" + 
+                "\nP - View location of actors" + "\nS - View percent explored" + 
+                "\nM - Move person to new location" + "\nT - Test questions" + 
+                "\nH - Help" + "\nQ - Quit");
 
         boolean valid = false;
         while(!valid) {
@@ -68,6 +71,8 @@ class GameMenuView {
                 break;
              case "M" : movePerson();
                 break;
+             case "T" : testQuestion();
+                break;
              case "H" : getHelp();
                 break;
              case "Q" : return true;
@@ -78,31 +83,42 @@ class GameMenuView {
     }
 
     private void viewMap() {
-        System.out.println("view map view called");
+        ViewMapView viewMapView = new ViewMapView();
+        viewMapView.displayViewMapView();
     }
 
     private void listItems() {
-        System.out.println("list items view called");
+        ViewListItems viewListItems = new ViewListItems();
+        viewListItems.displayViewListItems();
     }
 
     private void listActors() {
-        System.out.println("list of actors view called");
+        ViewListActors viewListActors = new ViewListActors();
+        viewListActors.displayViewListActors();
     }
 
     private void locationPlayers() {
-        System.out.println("location Players view called");
+        ViewLocationPlayers viewLocationPlayers = new ViewLocationPlayers();
+        viewLocationPlayers.displayViewLocationPlayers();
     }
 
     private void percentExplored() {
-        System.out.println("Percent Explored view called");
+        ViewPercentExplored viewPercentExplored = new ViewPercentExplored();
+        viewPercentExplored.displayViewPercentExplored();
     }
 
     private void movePerson() {
-        System.out.println("move person view called");
+        ViewMovePerson viewMovePerson = new ViewMovePerson();
+        viewMovePerson.displayViewMovePerson();
     }
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView(); 
+    }
+
+    private void testQuestion() {
+        ViewTestQuestion viewTestQuestion = new ViewTestQuestion();
+        viewTestQuestion.displayViewTestQuestion();
     }
     
 }
