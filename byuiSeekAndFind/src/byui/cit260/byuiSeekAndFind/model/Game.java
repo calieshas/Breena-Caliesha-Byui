@@ -21,6 +21,7 @@ public class Game implements Serializable {
     private Map map;
     private ArrayList <Item> items = new ArrayList<Item>();
     private ArrayList <Actor> actors = new ArrayList<Actor>();
+    private int incorrectQuestions = 0;
     
     public Game() {
     }
@@ -56,7 +57,6 @@ public class Game implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-     
 
     public String getName() {
         return name;
@@ -74,6 +74,14 @@ public class Game implements Serializable {
         this.totalTime = totalTime;
     }
 
+    public int getIncorrectQuestions() {
+        return incorrectQuestions;
+    }
+
+    public void setIncorrectQuestions(int incorrectQuestions) {
+        this.incorrectQuestions = incorrectQuestions;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;

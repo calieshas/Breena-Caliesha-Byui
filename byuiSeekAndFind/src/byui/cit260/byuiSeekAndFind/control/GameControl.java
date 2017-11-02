@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiSeekAndFind.control;
 
+import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Player;
 import byuiseekandfind.ByuiSeekAndFind;
 
@@ -25,6 +26,8 @@ public class GameControl {
         return player;
     }
     public static void createNewGame(Player player) {
+        Game game = new Game();
+        ByuiSeekAndFind.setCurrentGame(game);
         System.out.println("create new game was called");
     }
 }
