@@ -74,7 +74,7 @@ class ViewTestQuestion {
 
     private void questionTwo() {
         QuestionTwoView questionTwoView = new QuestionTwoView();
-        questionTwoView.displayQuestionTwoiew();
+        questionTwoView.displayQuestionTwoView();
     }
     
 }
