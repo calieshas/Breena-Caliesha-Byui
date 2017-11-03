@@ -40,10 +40,9 @@ class QuestionTwoView {
             randomHeight = randomNumber.nextInt(8) +2;
             randomLength = randomNumber.nextInt(3) +2;
             randomWidth = randomNumber.nextInt(100);
-        System.out.println("A room has a hight of" + randomHeight
-                + "and length of " + randomLength + "and a width of" 
-                + randomWidth + "what is the valume of the room?" 
-                + "\n*Type H to know how many hints you have left, or ? to get a hint.*");
+        System.out.println("A room has a hight of " + randomHeight
+                + ", a length of " + randomLength + ", and a width of " 
+                + randomWidth + " what is the valume of the room?");
 
         boolean valid = false;
         while(!valid) {
@@ -68,7 +67,11 @@ class QuestionTwoView {
     
     private String getHintInput() {
                         String input = new String();
-        System.out.println( "H= hints");
+        System.out.println( "? = Give me a hint"
+                + "\nH = Number of hints remaining"
+                + "\nQ = Quit"
+                + "\nOR"
+                + "\nHit any other key to see your results");
 
         boolean valid = false;
         while(!valid) {
@@ -107,12 +110,20 @@ class QuestionTwoView {
          int answer = Integer.parseInt(value);
          int result = QuestionControl.calcQuestionAnswerCost(randomHeight, randomLength, randomWidth, answer);
          switch (result) {
-            case -1: System.out.println("height, length, or width is invalid");
+            case -1: System.out.println("An error occurred with the length, Width, or Height.");
                 break;
-            case 0: System.out.println("answer incorrect");
+            case 0: System.out.println("------------------------------------------------------" 
+                    + "\nYour Answer is incorrect, you lost a life! " 
+                    + "\nThe correct answer was: " 
+// get actual answer
+                    + "answer" 
+                    + "\nYou have " + "#" + " lives remaining."
+                    + "\n------------------------------------------------------");
+// get the number of lives^
                 break;
-            
-            default: System.out.println("Correct!");
+            default: System.out.println("*******************************************************" 
+                    + "\nCONGRATULATIONS!!! You avoided the trap!"
+                    + "\n*******************************************************");
              
         }
                  

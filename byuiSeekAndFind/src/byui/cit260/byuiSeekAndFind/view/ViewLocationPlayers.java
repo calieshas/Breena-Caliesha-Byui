@@ -12,7 +12,7 @@ package byui.cit260.byuiSeekAndFind.view;
 class ViewLocationPlayers {
 
     void displayViewLocationPlayers() {
-        System.out.println("Location of Players display view called");
+        System.out.println("Location of Actors display view called");
     }
     
 }
