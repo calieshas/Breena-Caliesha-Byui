@@ -30,11 +30,11 @@ public class QuestionControl {
             return 1;
         }
         return 0;
-        
+
     }
-    
-    public static double calcQuestionAnswerVolume(double height, double length,
-            double width, double answer) {
+
+    public static int calcQuestionAnswerVolume(int height, int length,
+            int width, int answer) {
         if (height < 0) {
             return -1;
         }
@@ -50,9 +50,9 @@ public class QuestionControl {
         }
         return 0;
     }
-    
+
     public static int calcQuestionAnswerCost(int numberStudent, int numberTextbook, int cost, int answer) {
-        
+
         if (numberStudent < 0) {
             return -1;
         }
@@ -67,8 +67,10 @@ public class QuestionControl {
             return 1;
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
-        game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
+        if (game != null) {
+            game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
+        }
         return 0;
     }
-    
+
 }

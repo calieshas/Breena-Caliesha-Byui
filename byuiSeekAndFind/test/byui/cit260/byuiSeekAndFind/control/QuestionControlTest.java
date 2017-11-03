@@ -110,170 +110,169 @@ public class QuestionControlTest {
         
         // ---- Test Case 1 -----
         System.out.println("\tTest case 1");
-        double height = 5.0;
-        double length = 3.0;
-        double width = 2.0;
-        double answer = 30;
-        double expResult = 1;
-        double result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        int height = 5;
+        int length = 3;
+        int width = 2;
+        int answer = 30;
+        int expResult = 1;
+        int result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
+        assertEquals(expResult, result);
         
         // ---- Test Case 2 -----
         System.out.println("\tTest case 2");
-        height = 5.0;
-        length = 3.0;
-        width = 2.0;
+        height = 5;
+        length = 3;
+        width = 2;
         answer = 10;
         expResult = 0;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 3 -----
         System.out.println("\tTest case 3");
         height = -1;
-        length = 3.0;
-        width = 2.0;
+        length = 3;
+        width = 2;
         answer = 10;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 4 -----
         System.out.println("\tTest case 4");
-        height = 5.0;
+        height = 5;
         length = -1;
-        width = 2.0;
+        width = 2;
         answer = 10;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 5 -----
         System.out.println("\tTest case 5");
-        height = 5.0;
-        length = 3.0;
+        height = 5;
+        length = 3;
         width = -1;
         answer = 10;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 6 -----
         System.out.println("\tTest case 6");
         height = 0;
-        length = 3.0;
-        width = 2.0;
+        length = 3;
+        width = 2;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 7 -----
         System.out.println("\tTest case 7");
-        height = 5.0;
+        height = 5;
         length = 0;
-        width = 2.0;
+        width = 2;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 8 -----
         System.out.println("\tTest case 8");
-        height = 5.0;
-        length = 3.0;
+        height = 5;
+        length = 3;
         width = 0;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerVolume(height, length, width, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
     }
     
-    /*
+    
     @Test
     public void testCalcQuestionAnswerCost() {
         System.out.println("calcQuestionAnswerCost");
         
         // ---- Test Case 1 -----
         System.out.println("\tTest case 1");
-        int numberStudent = 5.0;
-        int numberTextbook = 4.0;
-        int cost = 50.0;
+        int numberStudent = 5;
+        int numberTextbook = 4;
+        int cost = 50;
         int answer = 1000;
         int expResult = 1;
         int result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result, 1);
         
         // ---- Test Case 2 -----
         System.out.println("\tTest case 2");
-        numberStudent = 5.0;
-        numberTextbook = 4.0;
-        cost = 50.0;
+        numberStudent = 5;
+        numberTextbook = 4;
+        cost = 50;
         answer = 200;
         expResult = 0;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
-        // ---- Test Case 3 -----
+       // ---- Test Case 3 -----
         System.out.println("\tTest case 3");
-        numberStudent = -1.0;
-        numberTextbook = 4.0;
-        cost = 50.0;
+        numberStudent = -1;
+        numberTextbook = 4;
+        cost = 50;
         answer = -200;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
-        // ---- Test Case 4 -----
         System.out.println("\tTest case 4");
-        numberStudent = 5.0;
-        numberTextbook = -1.0;
-        cost = 50.0;
+        numberStudent = 5;
+        numberTextbook = -1;
+        cost = 50;
         answer = -250;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result, 1);
         
         // ---- Test Case 5 -----
         System.out.println("\tTest case 5");
-        numberStudent = 5.0;
-        numberTextbook = 4.0;
-        cost = -1.0;
+        numberStudent = 5;
+        numberTextbook = 4;
+        cost = -1;
         answer = -20;
         expResult = -1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 6 -----
         System.out.println("\tTest case 6");
-        numberStudent = 0.0;
-        numberTextbook = 4.0;
-        cost = 50.0;
+        numberStudent = 0;
+        numberTextbook = 4;
+        cost = 50;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 7 -----
         System.out.println("\tTest case 7");
-        numberStudent = 5.0;
-        numberTextbook = 0.0;
-        cost = 50.0;
+        numberStudent = 5;
+        numberTextbook = 0;
+        cost = 50;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
         
         // ---- Test Case 8 -----
         System.out.println("\tTest case 8");
-        numberStudent = 5.0;
-        numberTextbook = 4.0;
-        cost = 0.0;
+        numberStudent = 5;
+        numberTextbook = 4;
+        cost = 0;
         answer = 0;
         expResult = 1;
         result = QuestionControl.calcQuestionAnswerCost(numberStudent, numberTextbook, cost, answer);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result);
     }
-   */ 
+    
     
 }

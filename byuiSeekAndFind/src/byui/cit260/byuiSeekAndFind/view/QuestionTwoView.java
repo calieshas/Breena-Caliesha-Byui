@@ -40,9 +40,9 @@ class QuestionTwoView {
             randomHeight = randomNumber.nextInt(8) +2;
             randomLength = randomNumber.nextInt(3) +2;
             randomWidth = randomNumber.nextInt(100);
-        System.out.println("A room has a hight of" + randomHeight
-                + "and length of " + randomLength + "and a width of" 
-                + randomWidth + "what is the valume of the room?" 
+        System.out.println("A room has a hight of " + randomHeight
+                + " and length of " + randomLength + " and a width of " 
+                + randomWidth + " what is the valume of the room?" 
                 + "\n*Type H to know how many hints you have left, or ? to get a hint.*");
 
         boolean valid = false;
@@ -105,7 +105,7 @@ class QuestionTwoView {
          
          String value = inputs[0];
          int answer = Integer.parseInt(value);
-         int result = QuestionControl.calcQuestionAnswerCost(randomHeight, randomLength, randomWidth, answer);
+         int result = QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
          switch (result) {
             case -1: System.out.println("height, length, or width is invalid");
                 break;
