@@ -68,7 +68,11 @@ class QuestionTwoView {
     
     private String getHintInput() {
                         String input = new String();
-        System.out.println( "H= hints");
+        System.out.println( "? = Give me a hint"
+                + "\nH = Number of hints remaining"
+                + "\nQ = Quit"
+                + "\nOR"
+                + "\nHit any other key to see your results");
 
         boolean valid = false;
         while(!valid) {
@@ -107,12 +111,20 @@ class QuestionTwoView {
          int answer = Integer.parseInt(value);
          int result = QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
          switch (result) {
-            case -1: System.out.println("height, length, or width is invalid");
+            case -1: System.out.println("An error occurred with the length, Width, or Height.");
                 break;
-            case 0: System.out.println("answer incorrect");
+            case 0: System.out.println("------------------------------------------------------" 
+                    + "\nYour Answer is incorrect, you lost a life! " 
+                    + "\nThe correct answer was: " 
+// get actual answer
+                    + "answer" 
+                    + "\nYou have " + "#" + " lives remaining."
+                    + "\n------------------------------------------------------");
+// get the number of lives^
                 break;
-            
-            default: System.out.println("Correct!");
+            default: System.out.println("*******************************************************" 
+                    + "\nCONGRATULATIONS!!! You avoided the trap!"
+                    + "\n*******************************************************");
              
         }
                  

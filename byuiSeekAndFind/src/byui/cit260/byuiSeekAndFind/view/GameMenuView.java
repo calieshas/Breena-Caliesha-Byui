@@ -29,11 +29,15 @@ class GameMenuView {
 
     private String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nV - View Map" +
-                "\nI - View list of items" + "\nA - View list of actors" + 
-                "\nP - View location of actors" + "\nS - View percent explored" + 
-                "\nM - Move person to new location" + "\nT - Test questions" + 
-                "\nH - Help" + "\nQ - Quit");
+        System.out.println("Choose one of the following:" 
+                + "\nV - View Map" 
+                + "\nI - View list of items" 
+                + "\nA - View list of actors" 
+                + "\nL - View location of actors" 
+                + "\nS - View percent explored" 
+                + "\nM - Move person to new location" 
+                + "\nT - Test questions" 
+                + "\nH - Help" + "\nQ - Quit");
 
         boolean valid = false;
         while(!valid) {
@@ -65,7 +69,7 @@ class GameMenuView {
                 break;
              case "A" : listActors();
                 break;
-             case "P" : locationPlayers();
+             case "L" : locationPlayers();
                 break;
              case "S" : percentExplored();
                 break;

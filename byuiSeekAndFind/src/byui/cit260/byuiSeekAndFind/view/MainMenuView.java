@@ -33,7 +33,7 @@ public class MainMenuView {
 
         String[] inputs = new String[1];
         System.out.println("Choose one of the following:" + "\nG - Start game" +
-                "\nH - Get help on how to play the game" + "\nS - Save game" + "\nE - Exit");
+                "\nH - Get help on how to play the game" + "\nR - Restart game" + "\nQ - Quit");
        
         boolean valid = false;
         while(!valid) {
@@ -63,9 +63,9 @@ public class MainMenuView {
                 break;
              case "H" : getHelp();
                 break;
-             case "S" : restartGame();
+             case "R" : restartGame();
                 break;
-             case "E" : return true;
+             case "Q" : return true;
              default : System.out.println("Invalid menu item.");
     }
          return false;

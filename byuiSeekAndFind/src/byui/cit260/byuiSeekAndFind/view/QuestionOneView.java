@@ -42,8 +42,7 @@ class QuestionOneView {
             randomAmount = randomNumber.nextInt(100);
         System.out.println( randomStudent + " students are going to buy textbooks. "
                 + "They each need " + randomTextbook + " textbooks. If each textbook costs $" 
-                + randomAmount + ", how much will be spent on textbooks total?" 
-                + "\n*Type H to know how many hints you have left, or ? to get a hint.*");
+                + randomAmount + ", how much will be spent on textbooks total?");
 
         boolean valid = false;
         while(!valid) {
@@ -68,15 +67,18 @@ class QuestionOneView {
     
     private String getHintInput() {
                         String input = new String();
-        System.out.println( "H= hints");
+        System.out.println( "? = Give me a hint"
+                + "\nH = Number of hints remaining"
+                + "\nQ = Quit"
+                + "\nOR"
+                + "\nHit any other key to see your results");
 
         boolean valid = false;
         while(!valid) {
        
             Scanner userInputs = new Scanner(System.in);
             String userAnswer;
-            //^ Int ?
-            System.out.println("Enter letter");
+            System.out.println("Enter a letter");
             userAnswer = userInputs.nextLine().trim();
 
             if(userAnswer.length() < 1) {
@@ -107,12 +109,20 @@ class QuestionOneView {
          int answer = Integer.parseInt(value);
          int result = QuestionControl.calcQuestionAnswerCost(randomStudent, randomTextbook, randomAmount, answer);
          switch (result) {
-            case -1: System.out.println("student, textbook, or amount is invalid");
+            case -1: System.out.println("An error occurred with the number of Student, Textbooks, or Amount.");
                 break;
-            case 0: System.out.println("answer incorrect");
+            case 0: System.out.println("------------------------------------------------------" 
+                    + "\nYour Answer is incorrect, you lost a life! " 
+                    + "\nThe correct answer was: " 
+// get actual answer
+                    + "answer" 
+                    + "\nYou have " + "#" + " lives remaining."
+                    + "\n------------------------------------------------------");
+// get the number of lives^
                 break;
-            
-            default: System.out.println("Correct!");
+            default: System.out.println("*******************************************************" 
+                    + "\nCONGRATULATIONS!!! You avoided the trap!"
+                    + "\n*******************************************************");
              
         }
                  
