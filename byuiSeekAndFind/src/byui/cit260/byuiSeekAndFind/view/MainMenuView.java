@@ -13,62 +13,39 @@ import java.util.Scanner;
  *
  * @author calie
  */
-public class MainMenuView {
-    public void displayMainMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q") || 
-                    inputs.length < 1 || 
-                    inputs == null) {   
-                return;
-            }
-            
-         endView = doAction(inputs);
-        } while (!endView);
+public class MainMenuView extends View {
 
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nG - Start game" +
-                "\nH - Get help on how to play the game" + "\nR - Restart game" + "\nQ - Quit");
-       
-        boolean valid = false;
-        while(!valid) {
-       
-            Scanner userInputs = new Scanner(System.in);
-            String menuLetter;
-            System.out.println("Enter a letter");
-            menuLetter = userInputs.nextLine().trim();
+        System.out.println("Choose one of the following:" + "\nG - Start game"
+                + "\nH - Get help on how to play the game" + "\nR - Restart game" + "\nQ - Quit");
 
-            if(menuLetter.length() < 1) {
-                System.out.println("You must enter a value.");
-                continue;
-            }
-            inputs[0] = menuLetter;
-            valid = true;
-        }
-        
+        inputs[0] = this.getInput("\nEnter a menu item");
+
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem = menuItem.toUpperCase(); 
+        menuItem = menuItem.toUpperCase();
 
-         switch (menuItem) {
-             case "G" : startGame();
+        switch (menuItem) {
+            case "G":
+                startGame();
                 break;
-             case "H" : getHelp();
+            case "H":
+                getHelp();
                 break;
-             case "R" : restartGame();
+            case "R":
+                restartGame();
                 break;
-             case "Q" : return true;
-             default : System.out.println("Invalid menu item.");
-    }
-         return false;
+            case "Q":
+                return true;
+            default:
+                System.out.println("Invalid menu item.");
+        }
+        return false;
     }
 
     private void startGame() {
@@ -79,13 +56,12 @@ public class MainMenuView {
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView(); 
+        helpMenuView.display();
     }
 
     private void restartGame() {
         RestartGameView restartGameView = new RestartGameView();
-        restartGameView.displayRestartGameView(); 
+        restartGameView.displayRestartGameView();
     }
-    
-    
+
 }

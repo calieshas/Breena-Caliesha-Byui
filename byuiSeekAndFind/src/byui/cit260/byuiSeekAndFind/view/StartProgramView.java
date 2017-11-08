@@ -13,62 +13,33 @@ import java.util.Scanner;
  *
  * @author breen
  */
-public class StartProgramView {
-    public void displayStartProgramView(){
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q") || 
-                    inputs.length < 1 || 
-                    inputs == null) {   
-                return;
-            }
-            
-         endView = doAction(inputs);
-        } while (!endView);
+public class StartProgramView extends View {
 
-    }
-
-
-    private String[] getInputs() {
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
         System.out.println("Welcome to BYU-Idaho Seek and Find");
-       
-        boolean valid = false;
-        while(!valid) {
-       
-            Scanner userInputs = new Scanner(System.in);
-            String firstName;
-            System.out.println("Enter the player's name");
-            firstName = userInputs.nextLine().trim();
 
-            if(firstName.length() < 2) {
-                System.out.println("You must enter a value.");
-                continue;
-            }
-            inputs[0] = firstName;
-            valid = true;
-        }
-        
+        inputs[0] = this.getInput("\nEnter players name");
+
         return inputs;
-        }
+    }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
         Player player = GameControl.savePlayer(playersName);
-            if (player == null) {
-                System.out.println("Could not creat the player. " + "\nEnter a different name.");
-                return false;
-            }
-            
+        if (player == null) {
+            System.out.println("Could not creat the player. " + "\nEnter a different name.");
+            return false;
+        }
+
         System.out.println("================================================= "
-         + "\nWelcome to the game " + playersName + "\nWe hope you have a lot of fun!"
-         + "\n================================================= ");
-         
+                + "\nWelcome to the game " + playersName + "\nWe hope you have a lot of fun!"
+                + "\n================================================= ");
+
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView(); 
+        mainMenuView.display();
         return true;
-       
+
     }
 }

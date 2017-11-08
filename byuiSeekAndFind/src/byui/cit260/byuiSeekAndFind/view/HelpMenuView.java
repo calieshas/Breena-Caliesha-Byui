@@ -11,75 +11,52 @@ import java.util.Scanner;
  *
  * @author calie
  */
-public class HelpMenuView {
-       public void displayHelpMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q") || 
-                    inputs.length < 1 || 
-                    inputs == null) {   
-                return;
-            }
-            
-         endView = doAction(inputs);
-        } while (!endView);
+public class HelpMenuView extends View {
 
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nG - What is the goal of the game?" +
-                "\nM - How to move" + "\nE - Estimating the amount of items in game" + "\nQ - Quit");
+        System.out.println("Choose one of the following:" + "\nG - What is the goal of the game?"
+                + "\nM - How to move" + "\nE - Estimating the amount of items in game" + "\nQ - Quit");
 
-        boolean valid = false;
-        while(!valid) {
-       
-            Scanner userInputs = new Scanner(System.in);
-            String helpLetter;
-            System.out.println("Enter a letter");
-            helpLetter = userInputs.nextLine().trim();
+        inputs[0] = this.getInput("\nEnter a menu item");
 
-            if(helpLetter.length() < 1) {
-                System.out.println("You must enter a value.");
-                continue;
-            }
-            inputs[0] = helpLetter;
-            valid = true;
-        }
-        
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String helpItem = inputs[0];
-        helpItem = helpItem.toUpperCase(); 
+        helpItem = helpItem.toUpperCase();
 
-         switch (helpItem) {
-             case "G" : gameGoal();
+        switch (helpItem) {
+            case "G":
+                gameGoal();
                 break;
-             case "M" : howMove();
+            case "M":
+                howMove();
                 break;
-             case "E" : estimateItems();
+            case "E":
+                estimateItems();
                 break;
-             case "Q" : return true;
-             default : System.out.println("Invalid menu item.");
-    }
+            case "Q":
+                return true;
+            default:
+                System.out.println("Invalid menu item.");
+        }
 
-         return false;
+        return false;
     }
 
     private void gameGoal() {
-       System.out.println("game goal called");
+        System.out.println("game goal called");
     }
 
     private void howMove() {
         System.out.println("how move called");
-            }
+    }
 
     private void estimateItems() {
         System.out.println("estimate items called");
     }
-    
+
 }
