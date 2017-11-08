@@ -103,7 +103,7 @@ class GameMenuView {
 
     private void listItems() {
         ViewListItems viewListItems = new ViewListItems();
-        viewListItems.displayViewListItems();
+        viewListItems.display();
     }
 
     private void listActors() {
