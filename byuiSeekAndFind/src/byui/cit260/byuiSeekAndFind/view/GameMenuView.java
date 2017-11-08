@@ -108,7 +108,7 @@ class GameMenuView {
 
     private void listActors() {
         ViewListActors viewListActors = new ViewListActors();
-        viewListActors.displayViewListActors();
+        viewListActors.display();
     }
 
     private void locationPlayers() {
