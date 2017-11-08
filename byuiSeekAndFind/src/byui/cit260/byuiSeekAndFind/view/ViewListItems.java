@@ -9,10 +9,35 @@ package byui.cit260.byuiSeekAndFind.view;
  *
  * @author breen
  */
-class ViewListItems {
+class ViewListItems extends View {
 
-    void displayViewListItems() {
-            System.out.println("list items display view called");
+    public String[] getInputs() {
+
+        String[] inputs = new String[1];
+        System.out.println("=================================================================================================================================="
+                + "\nYou will be collecting these items:" + "\n-Textbook"
+                + "\n-Phone" +"\n-Computer" +"\n-Significant Other" +"\n-Professor" 
+                + "\nYou will need to collect all these items to win the game." 
+                + "\nQ - Quit"
+                + "\n==================================================================================================================================");
+
+        inputs[0] = this.getInput("\nReturn to Game Menu");
+
+        return inputs;
+    }
+
+    public boolean doAction(String[] inputs) {
+        String viewListItem = inputs[0];
+        viewListItem = viewListItem.toUpperCase();
+
+        switch (viewListItem) {
+            case "Q":
+                return true;
+            default:
+                System.out.println("Invalid menu item.");
+        }
+
+        return false;
     }
     
 }
