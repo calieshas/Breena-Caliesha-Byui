@@ -25,9 +25,48 @@ public class GameControl {
         ByuiSeekAndFind.setPlayer(player);
         return player;
     }
-    public static void createNewGame(Player player) {
-        Game game = new Game();
-        ByuiSeekAndFind.setCurrentGame(game);
-        System.out.println("create new game was called");
+    public static int createNewGame(Player player) {
+          if(player == null){
+             return -1;
+          }
+          
+          
+    public static game() {
+          game.setPlayer(player);
+          ByuiSeekAndFind.setCurrentGame(game); 
+//        Save a reference to the Player object in the game
+//        Save a reference to the game in the main class
+
+    }
+    public static actors() {
+        game.setActors(actors);
+        player = actor;
+    }
+//        actors = createActors()
+//        Save the list of actors in the Game object
+//        Assign an actor to the player
+
+    
+    public static InventoryItem[] createItems(); {
+          System.out.println("createItems called");
+    }
+//        items = createItems()
+//        Save the list of items in the game
+
+    public static Map createMap(int noOfRows, int noOfColumns)
+            if(map == null) {
+                return -1;
+//        map = createMap(noOfRows, noOfColumns)
+//        IF map == null THEN
+//         RETURN -1
+//        ENDIF
+            } 
+    
+    game = map {
+        return 1
+    }
+}
+//        Assign the map to the game
+//        RETURN 1 // indicates success 
     }
 }
