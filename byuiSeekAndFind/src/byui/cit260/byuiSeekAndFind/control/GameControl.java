@@ -6,18 +6,20 @@
 package byui.cit260.byuiSeekAndFind.control;
 
 import byui.cit260.byuiSeekAndFind.model.Game;
+import byui.cit260.byuiSeekAndFind.model.Item;
+import byui.cit260.byuiSeekAndFind.model.Map;
 import byui.cit260.byuiSeekAndFind.model.Player;
 import byuiseekandfind.ByuiSeekAndFind;
-
 
 /**
  *
  * @author breen
  */
 public class GameControl {
+
     public static Player savePlayer(String name) {
 
-        if(name == null || name.length() < 1) {
+        if (name == null || name.length() < 1) {
             return null;
         }
         Player player = new Player();
@@ -25,48 +27,37 @@ public class GameControl {
         ByuiSeekAndFind.setPlayer(player);
         return player;
     }
+
     public static int createNewGame(Player player) {
-          if(player == null){
-             return -1;
-          }
-          
-          
-    public static game() {
-          game.setPlayer(player);
-          ByuiSeekAndFind.setCurrentGame(game); 
-//        Save a reference to the Player object in the game
-//        Save a reference to the game in the main class
+        if (player == null) {
+            return -1;
+        }
 
-    }
-    public static actors() {
-        game.setActors(actors);
-        player = actor;
-    }
-//        actors = createActors()
-//        Save the list of actors in the Game object
-//        Assign an actor to the player
+        Game game = new Game();
+        game.setPlayer(player);
+        ByuiSeekAndFind.setCurrentGame(game);
 
-    
-    public static InventoryItem[] createItems(); {
-          System.out.println("createItems called");
-    }
-//        items = createItems()
-//        Save the list of items in the game
+        Item[] items = GameControl.createItems();
+        game.setItems(items);
 
-    public static Map createMap(int noOfRows, int noOfColumns)
-            if(map == null) {
-                return -1;
-//        map = createMap(noOfRows, noOfColumns)
-//        IF map == null THEN
-//         RETURN -1
-//        ENDIF
-            } 
-    
-    game = map {
-        return 1
+        Map map = GameControl.createMap(5, 5, items);
+        if(map == null) {
+            return -1;
+        }
+        game.setMap(map);
+        return 1;
     }
+
+    public static Item[] createItems()    {
+        System.out.println("createItems called");
+        return new Item[1];
+    }
+
+    public static Map createMap(int noOfRows, int noOfColumns, Item[] items) {
+            System.out.println("createMap called");
+            return new Map();
+
 }
-//        Assign the map to the game
-//        RETURN 1 // indicates success 
-    }
+
+
 }

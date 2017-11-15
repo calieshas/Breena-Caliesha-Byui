@@ -15,11 +15,13 @@ import java.util.Objects;
  */
 public class Game implements Serializable {
     
+    int noOfItems = 5;
     private String name;
     private double totalTime;
     private Player player;
     private Map map;
-    private ArrayList <Item> items = new ArrayList<Item>();
+    Item[] items = new Item[noOfItems];
+ //   private Arraylist <Item> items = new Arraylist<Item>();
     private ArrayList <Actor> actors = new ArrayList<Actor>();
     private int incorrectQuestions = 0;
     
@@ -34,13 +36,14 @@ public class Game implements Serializable {
         this.actors = actors;
     }
 
-    public ArrayList<Item> getItems() {
+    public Item[] getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(Item[] items) {
         this.items = items;
     }
+
 
     public Map getMap() {
         return map;

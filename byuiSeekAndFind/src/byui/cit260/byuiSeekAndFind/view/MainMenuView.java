@@ -6,6 +6,7 @@
 package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.GameControl;
+import byui.cit260.byuiSeekAndFind.model.Player;
 import byuiseekandfind.ByuiSeekAndFind;
 import java.util.Scanner;
 
@@ -49,7 +50,8 @@ public class MainMenuView extends View {
     }
 
     private void startGame() {
-        GameControl.createNewGame(ByuiSeekAndFind.getPlayer());
+        Player player = ByuiSeekAndFind.getPlayer();
+        GameControl.createNewGame(player);
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }
