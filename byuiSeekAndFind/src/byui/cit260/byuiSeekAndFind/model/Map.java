@@ -17,8 +17,8 @@ import java.util.Objects;
 public class Map implements Serializable {
     
     private String description;
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
     private Location[][] locations;
     
     public Map() {
@@ -40,19 +40,19 @@ public class Map implements Serializable {
         this.description = description;
     }
 
-    public Double getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(Double rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
-    public Double getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(Double columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 
