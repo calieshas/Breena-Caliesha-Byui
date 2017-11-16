@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Question implements Serializable{
     
     private String questionType;
-    private String answer;
+    private int answer;
 
     public Question() {
     }
@@ -29,11 +29,11 @@ public class Question implements Serializable{
         this.questionType = questionType;
     }
 
-    public String getAnswer() {
+    public int getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 
