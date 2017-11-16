@@ -14,19 +14,19 @@ import java.util.ArrayList;
  */
 public class Item implements Serializable {
     
-    private String objectType; 
+    private String itemType; 
     private double numberInPossesion;
-    private String objectsNeeded;
+    private String itemNeeded;
 
     public Item() {
     }
 
-    public String getObjectType() {
-        return objectType;
+    public String getItemType() {
+        return itemType;
     }
 
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
     public double getNumberInPossesion() {
@@ -37,26 +37,26 @@ public class Item implements Serializable {
         this.numberInPossesion = numberInPossesion;
     }
 
-    public String getObjectsNeeded() {
-        return objectsNeeded;
+    public String getItemNeeded() {
+        return itemNeeded;
     }
 
-    public void setObjectsNeeded(String objectsNeeded) {
-        this.objectsNeeded = objectsNeeded;
+    public void setItemNeeded(String itemNeeded) {
+        this.itemNeeded = itemNeeded;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + java.util.Objects.hashCode(this.objectType);
+        hash = 29 * hash + java.util.Objects.hashCode(this.itemType);
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.numberInPossesion) ^ (Double.doubleToLongBits(this.numberInPossesion) >>> 32));
-        hash = 29 * hash + java.util.Objects.hashCode(this.objectsNeeded);
+        hash = 29 * hash + java.util.Objects.hashCode(this.itemNeeded);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Objects{" + "objectType=" + objectType + ", numberInPossesion=" + numberInPossesion + ", objectsNeeded=" + objectsNeeded + '}';
+        return "Item{" + "itemType=" + itemType + ", numberInPossesion=" + numberInPossesion + ", itemNeeded=" + itemNeeded + '}';
     }
 
     
@@ -76,10 +76,10 @@ public class Item implements Serializable {
         if (Double.doubleToLongBits(this.numberInPossesion) != Double.doubleToLongBits(other.numberInPossesion)) {
             return false;
         }
-        if (!java.util.Objects.equals(this.objectType, other.objectType)) {
+        if (!java.util.Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
-        if (!java.util.Objects.equals(this.objectsNeeded, other.objectsNeeded)) {
+        if (!java.util.Objects.equals(this.itemNeeded, other.itemNeeded)) {
             return false;
         }
         return true;

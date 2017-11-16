@@ -55,37 +55,37 @@ public class GameControl {
         Item[] items = new Item[5];
         
         Item textbook = new Item();
-        textbook.setObjectType("Textbook");
+        textbook.setItemType("Textbook");
         textbook.setNumberInPossesion(0);
-        textbook.setObjectsNeeded("Textbook");
+        textbook.setItemNeeded("Textbook");
         items[0] = textbook;
         //item1 = new InventoryItem object
         //Assign values to each attribute in the InventoryItem object
         //Assign items1 to a position in the items array
         Item phone = new Item();
-        phone.setObjectType("phone");
+        phone.setItemType("phone");
         phone.setNumberInPossesion(0);
-        phone.setObjectsNeeded("phone");
+        phone.setItemNeeded("phone");
         items[1] = phone;
         //item2 = new InventoryItem object
         //Assign values to each attribute in the InventoryItem object
         //Assign items2 to a position in the items array
         Item computer = new Item();
-        computer.setObjectType("computer");
+        computer.setItemType("computer");
         computer.setNumberInPossesion(0);
-        computer.setObjectsNeeded("computer");
+        computer.setItemNeeded("computer");
         items[2] = computer;
 
         Item significant = new Item();
-        significant.setObjectType("Significant Other");
+        significant.setItemType("Significant Other");
         significant.setNumberInPossesion(0);
-        significant.setObjectsNeeded("Significant Other");
+        significant.setItemNeeded("Significant Other");
         items[3] = significant;
 
         Item professor = new Item();
-        professor.setObjectType("Professor");
+        professor.setItemType("Professor");
         professor.setNumberInPossesion(0);
-        professor.setObjectsNeeded("Professor");
+        professor.setItemNeeded("Professor");
         items[4] = professor;
 
         return items;
