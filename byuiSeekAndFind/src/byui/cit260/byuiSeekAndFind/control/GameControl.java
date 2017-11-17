@@ -8,6 +8,7 @@ package byui.cit260.byuiSeekAndFind.control;
 import byui.cit260.byuiSeekAndFind.model.Actor;
 import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Item;
+import byui.cit260.byuiSeekAndFind.model.ItemScene;
 import byui.cit260.byuiSeekAndFind.model.ItemType;
 import byui.cit260.byuiSeekAndFind.model.Location;
 import byui.cit260.byuiSeekAndFind.model.Map;
@@ -16,6 +17,7 @@ import byui.cit260.byuiSeekAndFind.model.Question;
 import byui.cit260.byuiSeekAndFind.model.QuestionType;
 import byui.cit260.byuiSeekAndFind.model.Scene;
 import byui.cit260.byuiSeekAndFind.model.SceneType;
+import byui.cit260.byuiSeekAndFind.model.TrapScene;
 import byuiseekandfind.ByuiSeekAndFind;
 
 /**
@@ -145,7 +147,7 @@ public class GameControl {
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[25];
         
-        Scene scene1 = new Scene();
+        Scene scene1 = new TrapScene();
         scene1.setSymbol("X");
         scene1.setDescription("Trap Scene");
         scenes[SceneType.question1.ordinal()] = scene1;
@@ -170,7 +172,7 @@ public class GameControl {
         scene5.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene5;
         
-        Scene scene6 = new Scene();
+        Scene scene6 = new ItemScene();
         scene6.setSymbol("1");
         scene6.setDescription("computer");
         scenes[SceneType.computer.ordinal()] = scene6;
@@ -180,7 +182,7 @@ public class GameControl {
         scene7.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene7;
         
-        Scene scene8 = new Scene();
+        Scene scene8 = new ItemScene();
         scene8.setSymbol(" ");
         scene8.setDescription("phone");
         scenes[SceneType.phone.ordinal()] = scene8;
@@ -190,7 +192,7 @@ public class GameControl {
         scene9.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene9;
         
-        Scene scene10 = new Scene();
+        Scene scene10 = new TrapScene();
         scene10.setSymbol("X");
         scene10.setDescription("Trap Scene");
         scenes[SceneType.question2.ordinal()] = scene10;
@@ -225,27 +227,27 @@ public class GameControl {
         scene16.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene16;
         
-        Scene scene17 = new Scene();
+        Scene scene17 = new TrapScene();
         scene17.setSymbol("X");
         scene17.setDescription("Trap Scene");
         scenes[SceneType.question3.ordinal()] = scene17;
         
-        Scene scene18 = new Scene();
+        Scene scene18 = new ItemScene();
         scene18.setSymbol("3");
         scene18.setDescription("Significant Other");
-        scenes[SceneType.significantOther.ordinal()] = scene18;
+        scenes[SceneType.significant.ordinal()] = scene18;
         
-        Scene scene19 = new Scene();
+        Scene scene19 = new TrapScene();
         scene19.setSymbol("X");
         scene19.setDescription("Trap Scene");
         scenes[SceneType.question4.ordinal()] = scene19;
         
-        Scene scene20 = new Scene();
+        Scene scene20 = new ItemScene();
         scene20.setSymbol("1");
         scene20.setDescription("Professor");
         scenes[SceneType.professor.ordinal()] = scene20;
         
-        Scene scene21 = new Scene();
+        Scene scene21 = new ItemScene();
         scene21.setSymbol("1");
         scene21.setDescription("Textbook");
         scenes[SceneType.textbook.ordinal()] = scene21;
@@ -255,7 +257,7 @@ public class GameControl {
         scene22.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene22;
         
-        Scene scene23 = new Scene();
+        Scene scene23 = new TrapScene();
         scene23.setSymbol("X");
         scene23.setDescription("Trap Scene");
         scenes[SceneType.question5.ordinal()] = scene23;
@@ -314,20 +316,67 @@ public class GameControl {
     }
 
     private static void assignQuestionsToScenes(Question[] questions, Scene[] scenes) {
-          
-//        questionScene1 = scenes(indexOfScene)
-//        questionsInScene = Create a new Questions array
-//        questionsInScene[0] = questions[indexOfQuestion]
-//                
-//        assign questionsInScene array to questionScene1 
+        TrapScene trapScene = (TrapScene)scenes[SceneType.question1.ordinal()];
+        trapScene.setQuestion(questions[QuestionType.volume.ordinal()]);
+        
+        trapScene = (TrapScene)scenes[SceneType.question2.ordinal()];
+        trapScene.setQuestion(questions[QuestionType.area.ordinal()]);
+        
+        trapScene = (TrapScene)scenes[SceneType.question3.ordinal()];
+        trapScene.setQuestion(questions[QuestionType.textbook.ordinal()]);
+        
+        trapScene = (TrapScene)scenes[SceneType.question4.ordinal()];
+        trapScene.setQuestion(questions[QuestionType.programming.ordinal()]);
+        
+        trapScene = (TrapScene)scenes[SceneType.question5.ordinal()];
+        trapScene.setQuestion(questions[QuestionType.humanities.ordinal()]);
+
     }
 
     private static void assignItemsToScenes(Item[] items, Scene[] scenes) {
-        System.out.println("assignItemsToScenes() called");
+        ItemScene itemScene = (ItemScene)scenes[SceneType.textbook.ordinal()];
+        itemScene.setItem(items[ItemType.textbook.ordinal()]);
+        
+        itemScene = (ItemScene)scenes[SceneType.phone.ordinal()];
+        itemScene.setItem(items[ItemType.phone.ordinal()]);
+        
+        itemScene = (ItemScene)scenes[SceneType.computer.ordinal()];
+        itemScene.setItem(items[ItemType.computer.ordinal()]);
+        
+        itemScene = (ItemScene)scenes[SceneType.significant.ordinal()];
+        itemScene.setItem(items[ItemType.significant.ordinal()]);
+        
+        itemScene = (ItemScene)scenes[SceneType.professor.ordinal()];
+        itemScene.setItem(items[ItemType.professor.ordinal()]);
+        
     }
 
     private static void assignScenesToLocations(Scene[] scenes, Location[][] locations) {
-        System.out.println("assignScenesToLocations() called");
+        locations[0][0].setScene(scenes[SceneType.question1.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.computer.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.phone.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.question2.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.question3.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.significant.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.question4.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.textbook.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.professor.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.question5.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.blank.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.blank.ordinal()]);
     }
 
 }

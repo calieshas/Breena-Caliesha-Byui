@@ -17,7 +17,7 @@ public enum SceneType {
     question5, 
     computer,
     phone, 
-    significantOther, 
+    significant, 
     professor, 
     textbook, 
     blank;

@@ -5,6 +5,9 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
+import byui.cit260.byuiSeekAndFind.model.Game;
+import byui.cit260.byuiSeekAndFind.model.Location;
+import byuiseekandfind.ByuiSeekAndFind;
 import java.util.Scanner;
 
 /**
@@ -97,8 +100,26 @@ class GameMenuView {
     }
 
     private void viewMap() {
-        ViewMapView viewMapView = new ViewMapView();
-        viewMapView.displayViewMapView();
+        Game game = ByuiSeekAndFind.getCurrentGame();
+        Location[][] locations = game.getMap().getLocations();
+        System.out.println("     BYU-I Seek And Find");
+        System.out.print("     0    1    2    3    4");
+
+        for (int row = 0; row < locations.length; row++) {
+            System.out.println("\n-----------------------------");
+            System.out.print(row);
+            for (int column = 0; column < locations[row].length; column++ ) {
+                System.out.print(" |");
+                Location location = locations[row][column];
+                    if (location.isVisited()) {
+                        System.out.print(location.getScene().getSymbol());
+                    }
+                    else 
+                        System.out.print(" --");
+            }
+            System.out.print(" |");
+        }
+        System.out.println("\n-----------------------------");
     }
 
     private void listItems() {
