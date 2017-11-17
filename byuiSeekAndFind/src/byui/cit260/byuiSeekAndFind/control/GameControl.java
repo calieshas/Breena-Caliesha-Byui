@@ -8,6 +8,7 @@ package byui.cit260.byuiSeekAndFind.control;
 import byui.cit260.byuiSeekAndFind.model.Actor;
 import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Item;
+import byui.cit260.byuiSeekAndFind.model.ItemType;
 import byui.cit260.byuiSeekAndFind.model.Location;
 import byui.cit260.byuiSeekAndFind.model.Map;
 import byui.cit260.byuiSeekAndFind.model.Player;
@@ -65,35 +66,31 @@ public class GameControl {
         textbook.setItemType("Textbook");
         textbook.setNumberInPossesion(0);
         textbook.setItemNeeded("Textbook");
-        items[0] = textbook;
-        //item1 = new InventoryItem object
-        //Assign values to each attribute in the InventoryItem object
-        //Assign items1 to a position in the items array
+        items[ItemType.textbook.ordinal()] = textbook;
+
         Item phone = new Item();
         phone.setItemType("phone");
         phone.setNumberInPossesion(0);
         phone.setItemNeeded("phone");
-        items[1] = phone;
-        //item2 = new InventoryItem object
-        //Assign values to each attribute in the InventoryItem object
-        //Assign items2 to a position in the items array
+        items[ItemType.phone.ordinal()] = phone;
+        
         Item computer = new Item();
         computer.setItemType("computer");
         computer.setNumberInPossesion(0);
         computer.setItemNeeded("computer");
-        items[2] = computer;
+        items[ItemType.computer.ordinal()] = computer;
 
         Item significant = new Item();
         significant.setItemType("Significant Other");
         significant.setNumberInPossesion(0);
         significant.setItemNeeded("Significant Other");
-        items[3] = significant;
+        items[ItemType.significant.ordinal()] = significant;
 
         Item professor = new Item();
         professor.setItemType("Professor");
         professor.setNumberInPossesion(0);
         professor.setItemNeeded("Professor");
-        items[4] = professor;
+        items[ItemType.professor.ordinal()] = professor;
 
         return items;
     }
@@ -289,6 +286,26 @@ public class GameControl {
         question1.setQuestionType("Math");
         question1.setAnswer(1);
         questions[QuestionType.volume.ordinal()] = question1;
+        
+        Question question2 = new Question();
+        question2.setQuestionType("Math");
+        question2.setAnswer(1);
+        questions[QuestionType.area.ordinal()] = question2;
+        
+        Question question3 = new Question();
+        question3.setQuestionType("Math");
+        question3.setAnswer(1);
+        questions[QuestionType.textbook.ordinal()] = question3;
+        
+        Question question4 = new Question();
+        question4.setQuestionType("Programming");
+        question4.setAnswer(1);
+        questions[QuestionType.programming.ordinal()] = question4;
+        
+        Question question5 = new Question();
+        question5.setQuestionType("humanities");
+        question5.setAnswer(1);
+        questions[QuestionType.humanities.ordinal()] = question5;
         
 //----------------------------------- ... --------------------------------------
  
