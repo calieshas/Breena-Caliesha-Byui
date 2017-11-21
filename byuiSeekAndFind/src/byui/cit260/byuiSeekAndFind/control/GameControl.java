@@ -378,5 +378,10 @@ public class GameControl {
         locations[4][3].setScene(scenes[SceneType.blank.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.blank.ordinal()]);
     }
+    public static void test(String [] args) {
+        ItemControl test1 = new ItemControl();
+        int aVal = test1.SumListOfItems();
+        System.out.println("Results = " + aVal);
+    }
 
 }
