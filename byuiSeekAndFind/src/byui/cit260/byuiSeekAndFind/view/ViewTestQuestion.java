@@ -30,7 +30,7 @@ class ViewTestQuestion {
     private String[] getInputs() {
                 String[] inputs = new String[1];
         System.out.println("Choose one of the following:" + "\nO - Question One" +
-                "\nT - Question Two" + "\nQ - Quit");
+                "\nT - Question Two" + "\nH - Question Three" + "\nQ - Quit");
 
         boolean valid = false;
         while(!valid) {
@@ -60,6 +60,8 @@ class ViewTestQuestion {
                 break;
              case "T" : questionTwo();
                 break;
+             case "H" : questionThree();
+                break;
              case "Q" : return true;
              default : System.out.println("Invalid menu item.");
     }
@@ -75,6 +77,11 @@ class ViewTestQuestion {
     private void questionTwo() {
         QuestionTwoView questionTwoView = new QuestionTwoView();
         questionTwoView.displayQuestionTwoView();
+    }
+    
+    private void questionThree() {
+        QuestionThreeView questionThreeView = new QuestionThreeView();
+        questionThreeView.displayQuestionThreeView();
     }
     
 }
