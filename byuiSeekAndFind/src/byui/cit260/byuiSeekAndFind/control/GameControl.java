@@ -96,6 +96,14 @@ public class GameControl {
 
         return items;
     }
+    int SumListOfItems() {
+       NumberInPossesion items = NumberInPossesion.values();
+       int sum = 0;
+        for (numberInPossesion item : items) {
+            sum ++;
+    }
+        return sum;
+    }
 
     public static Map createMap(int rowCount, int columnCount, Item[] items) {
 
