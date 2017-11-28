@@ -6,9 +6,12 @@
 package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.GameControl;
+import byui.cit260.byuiSeekAndFind.exception.GameControlException;
 import byui.cit260.byuiSeekAndFind.model.Player;
 import byuiseekandfind.ByuiSeekAndFind;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,7 +54,12 @@ public class MainMenuView extends View {
 
     private void startGame() {
         Player player = ByuiSeekAndFind.getPlayer();
-        GameControl.createNewGame(player);
+        try {
+            GameControl.createNewGame(player);
+        } catch (GameControlException ex) {
+            System.out.println(ex.getMessage());
+            return;
+        }
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }

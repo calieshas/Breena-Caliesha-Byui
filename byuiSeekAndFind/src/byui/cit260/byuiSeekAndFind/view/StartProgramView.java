@@ -6,8 +6,11 @@
 package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.GameControl;
+import byui.cit260.byuiSeekAndFind.exception.GameControlException;
 import byui.cit260.byuiSeekAndFind.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +30,13 @@ public class StartProgramView extends View {
 
     public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
-        Player player = GameControl.savePlayer(playersName);
+        Player player;
+        try {
+            player = GameControl.savePlayer(playersName);
+        } catch (GameControlException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
         if (player == null) {
             System.out.println("Could not creat the player. " + "\nEnter a different name.");
             return false;

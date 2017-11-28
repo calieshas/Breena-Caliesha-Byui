@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiSeekAndFind.control;
 
+import byui.cit260.byuiSeekAndFind.exception.GameControlException;
 import byui.cit260.byuiSeekAndFind.model.Actor;
 import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Item;
@@ -26,20 +27,21 @@ import byuiseekandfind.ByuiSeekAndFind;
  */
 public class GameControl {
 
-    public static Player savePlayer(String name) {
-
+    public static Player savePlayer(String name) throws GameControlException {
         if (name == null || name.length() < 1) {
-            return null;
+            throw new GameControlException("name can't be null");
         }
+    
         Player player = new Player();
         player.setName(name);
         ByuiSeekAndFind.setPlayer(player);
         return player;
     }
+    
 
-    public static int createNewGame(Player player) {
+    public static void createNewGame(Player player) throws GameControlException {
         if (player == null) {
-            return -1;
+            throw new GameControlException("player can't be null");
         }
 
         Game game = new Game();
@@ -53,10 +55,9 @@ public class GameControl {
 
         Map map = GameControl.createMap(5, 5, items);
         if (map == null) {
-            return -1;
+            throw new GameControlException("map can't be null");
         }
         game.setMap(map);
-        return 1;
 
     }
 
@@ -96,22 +97,22 @@ public class GameControl {
 
         return items;
     }
-    int SumListOfItems() {
-       NumberInPossesion items = NumberInPossesion.values();
-       int sum = 0;
-        for (numberInPossesion item : items) {
-            sum ++;
-    }
-        return sum;
-    }
+//    int SumListOfItems() {
+//       NumberInPossesion items = NumberInPossesion.values();
+//       int sum = 0;
+//        for (numberInPossesion item : items) {
+//            sum ++;
+//    }
+//        return sum;
+//    }
 
-    public static Map createMap(int rowCount, int columnCount, Item[] items) {
+    public static Map createMap(int rowCount, int columnCount, Item[] items) throws GameControlException {
 
         if (rowCount < 0 || columnCount < 0) {
-            return null;
+            throw new GameControlException("Row count and Column count can't be a negative number");
         }
         if (items == null || items.length < 1) {
-            return null;
+            throw new GameControlException("Items can't be null or less than 1");
         }
 
         Map map = new Map();
@@ -125,15 +126,14 @@ public class GameControl {
         Question[] questions = GameControl.createQuestions();
         GameControl.assignQuestionsToScenes(questions, scenes);
         GameControl.assignItemsToScenes(items, scenes);
-
         return map;
       
     }
 
-    private static Location[][] createLocations(int rowCount, int columnCount) {
+    private static Location[][] createLocations(int rowCount, int columnCount) throws GameControlException {
         System.out.println("createLocations() called");
         if(rowCount < 1 || columnCount < 1) {
-        return null;
+        throw new GameControlException("Row count and Column count can't be less then 1");
         }
         Location[][] locations = new Location[rowCount][columnCount];
         long total = 0;
@@ -386,10 +386,10 @@ public class GameControl {
         locations[4][3].setScene(scenes[SceneType.blank.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.blank.ordinal()]);
     }
-    public static void test(String [] args) {
-        ItemControl test1 = new ItemControl();
-        int aVal = test1.SumListOfItems();
-        System.out.println("Results = " + aVal);
-    }
+//    public static void test(String [] args) {
+//        ItemControl test1 = new ItemControl();
+//        int aVal = test1.SumListOfItems();
+//        System.out.println("Results = " + aVal);
+//    }
 
 }

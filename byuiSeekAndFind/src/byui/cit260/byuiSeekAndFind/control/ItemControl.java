@@ -5,20 +5,11 @@
  */
 package byui.cit260.byuiSeekAndFind.control;
 
-import byui.cit260.byuiSeekAndFind.model.ItemType;
 
 /**
  *
  * @author breen
  */
 public class ItemControl {
-    int SumListOfItems() {
-       ItemType[] items = ItemType.values();
-       int sum = 0;
-        for (ItemType item : items) {
-            sum ++;
-    }
-        return sum;
-    }
 
 }
