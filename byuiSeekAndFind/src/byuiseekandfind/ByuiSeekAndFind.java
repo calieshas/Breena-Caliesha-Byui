@@ -22,9 +22,14 @@ public class ByuiSeekAndFind {
     private static Player player = null;
     
     public static void main(String[] args) {
-        
+        try{
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        } catch (Throwable t){
+            System.out.println("Start program failed");
+            t.printStackTrace();
+            return;
+            }
     }
 
     public static Game getCurrentGame() {

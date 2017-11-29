@@ -111,7 +111,12 @@ class QuestionThreeView {
 //    }
 //         
 //         String value = inputs[0];
-//         int answer = Integer.parseInt(value);
+//         int answer = 0;
+//        try {
+//            answer = Integer.parseInt(value);
+//        } catch (NumberFormatException nf) {
+//            System.out.println("You must enter a integer");
+//        }
 //         int result = QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
 //         switch (result) {
 //            case -1: System.out.println("An error occurred with the length, Width, or Height.");
