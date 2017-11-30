@@ -143,7 +143,7 @@ class GameMenuView {
     }
 
     private void movePerson() {
-        ViewMovePerson viewMovePerson = new ViewMovePerson();
+        ViewMoveActor viewMovePerson = new ViewMoveActor();
         viewMovePerson.displayViewMovePerson();
     }
 
