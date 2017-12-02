@@ -143,8 +143,8 @@ class GameMenuView {
     }
 
     private void movePerson() {
-        ViewMoveActor viewMovePerson = new ViewMoveActor();
-        viewMovePerson.displayViewMovePerson();
+        ViewMoveActor viewMoveActor = new ViewMoveActor();
+        viewMoveActor.displayViewMoveActor();
     }
 
     private void getHelp() {

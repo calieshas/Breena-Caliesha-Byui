@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author breen
  */
 public class MapControl {
-    public static Location MoveActor (Actor actor, int newRow, int newColumn) throws MapControlException{
+    public static Location moveActor (Actor actor, int newRow, int newColumn) throws MapControlException{
         if (actor == null){
             throw new MapControlException ("actor can't be null");
         }

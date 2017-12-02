@@ -19,6 +19,7 @@ public class Player implements Serializable{
     private String name;
     private double bestTime;
     private Actor actor;
+    // add new for number of lives 
 
     public Player() {
     }

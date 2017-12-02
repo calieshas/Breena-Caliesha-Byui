@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiSeekAndFind.control;
 
+import byui.cit260.byuiSeekAndFind.exception.QuestionControlException;
 import byui.cit260.byuiSeekAndFind.model.Game;
 import byuiseekandfind.ByuiSeekAndFind;
 
@@ -14,46 +15,50 @@ import byuiseekandfind.ByuiSeekAndFind;
  */
 public class QuestionControl {
 
-    public static double calcQuestionAnswer(double height, double base1,
-            double base2, double answer) {
+    public static void calcQuestionAnswer(double height, double base1,
+            double base2, double answer) throws QuestionControlException {
         if (height < 0) {
-            return -1;
+            throw new QuestionControlException("Height must be 0 or greater");
         }
         if (base1 < 0) {
-            return -1;
+            throw new QuestionControlException("Base1 must be 0 or greater");
         }
         if (base2 < 0) {
-            return -1;
+            throw new QuestionControlException("Base2 must be 0 or greater");
         }
         double area = (base1 + base2) / 2 * height;
-        if (answer == area) {
-            return 1;
+        if (answer != area) {
+            throw new QuestionControlException("------------------------------------------------------\n" 
+                        + "\nYour Answer is incorrect, you lost a life! \n" 
+                        + "\nThe correct answer was: \n" 
+                        + area 
+                        + "\nYou have  + # +  lives remaining.\n" 
+                        + "\n------------------------------------------------------");
         }
-        return 0;
-
     }
 
-    public static int calcQuestionAnswerVolume(int height, int length,
-            int width, int answer) {
+    public static void calcQuestionAnswerVolume(int height, int length,
+            int width, int answer) throws QuestionControlException{
         if (height < 0) {
-            return -1;
+            throw new QuestionControlException("Height must be 0 or greater");
         }
         if (length < 0) {
-            return -1;
+            throw new QuestionControlException("Length must be 0 or greater");
         }
         if (width < 0) {
-            return -1;
+            throw new QuestionControlException("Width must be 0 or greater");
         }
         double volume = width * height * length;
-        if (answer == volume) {
-            return 1;
+        if (answer != volume) {
+            throw new QuestionControlException("Answer is incorrect");
         }
-        return 0;
     }
 
     public static int calcQuestionAnswerCost(int numberStudent, int numberTextbook, int cost, int answer) {
-
+        // add throws to method signature ^ 
+        
         if (numberStudent < 0) {
+            // change return -1 to throw statement 
             return -1;
         }
         if (numberTextbook < 0) {
@@ -64,12 +69,15 @@ public class QuestionControl {
         }
         int totalCost = numberStudent * numberTextbook * cost;
         if (answer == totalCost) {
-            return 1;
+            // change comparison above ^ to not equal to - instead of equal to
+            // add throw message that says incorrect
+            return 1; //delete this 
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
         if (game != null) {
             game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
         }
+        // change int in method signature to voide and delete return 0 
         return 0;
     }
 

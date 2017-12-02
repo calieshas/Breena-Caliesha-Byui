@@ -116,7 +116,10 @@ class QuestionTwoView {
         } catch (NumberFormatException nf) {
             System.out.println("You must enter a integer");
         }
-        int result = QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
+        QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
+        
+        //get rid of switch and change to a try catch? ask on monday
+        
         switch (result) {
             case -1:
                 System.out.println("An error occurred with the length, Width, or Height.");
