@@ -54,31 +54,27 @@ public class QuestionControl {
         }
     }
 
-    public static int calcQuestionAnswerCost(int numberStudent, int numberTextbook, int cost, int answer) {
+    public static void calcQuestionAnswerCost(int numberStudent, int numberTextbook, 
+            int cost, int answer)throws QuestionControlException {
         // add throws to method signature ^ 
-        
         if (numberStudent < 0) {
-            // change return -1 to throw statement 
-            return -1;
+            throw new QuestionControlException("Height must be 0 or greater");
         }
         if (numberTextbook < 0) {
-            return -1;
+            throw new QuestionControlException("Length must be 0 or greater");
         }
         if (cost < 0) {
-            return -1;
+            throw new QuestionControlException("Width must be 0 or greater");
         }
         int totalCost = numberStudent * numberTextbook * cost;
-        if (answer == totalCost) {
-            // change comparison above ^ to not equal to - instead of equal to
-            // add throw message that says incorrect
-            return 1; //delete this 
+        if (answer != totalCost) {
+            throw new QuestionControlException("Answer is incorrect");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
         if (game != null) {
             game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
         }
         // change int in method signature to voide and delete return 0 
-        return 0;
     }
 
 }
