@@ -6,8 +6,11 @@
 package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.QuestionControl;
+import byui.cit260.byuiSeekAndFind.exception.QuestionControlException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,9 +43,9 @@ class QuestionTwoView {
         randomHeight = randomNumber.nextInt(8) + 2;
         randomLength = randomNumber.nextInt(3) + 2;
         randomWidth = randomNumber.nextInt(100);
-        System.out.println("A room has a hight of " + randomHeight
+        System.out.println("A room has a height of " + randomHeight
                 + " and length of " + randomLength + " and a width of "
-                + randomWidth + " what is the valume of the room?"
+                + randomWidth + " what is the volume of the room?"
                 + "\n*Type H to know how many hints you have left, or ? to get a hint.*");
 
         boolean valid = false;
@@ -116,31 +119,15 @@ class QuestionTwoView {
         } catch (NumberFormatException nf) {
             System.out.println("You must enter a integer");
         }
-        QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
         
-        //get rid of switch and change to a try catch? ask on monday
-        
-        switch (result) {
-            case -1:
-                System.out.println("An error occurred with the length, Width, or Height.");
-                break;
-            case 0:
-                System.out.println("------------------------------------------------------"
-                        + "\nYour Answer is incorrect, you lost a life! "
-                        + "\nThe correct answer was: "
-                        // get actual answer
-                        + "answer"
-                        + "\nYou have " + "#" + " lives remaining."
-                        + "\n------------------------------------------------------");
-// get the number of lives^
-                break;
-            default:
-                System.out.println("*******************************************************"
+        try {
+            QuestionControl.calcQuestionAnswerVolume(randomHeight, randomLength, randomWidth, answer);
+            System.out.println("*******************************************************"
                         + "\nCONGRATULATIONS!!! You avoided the trap!"
                         + "\n*******************************************************");
-
+        } catch (QuestionControlException ex) {
+            System.out.println(ex.getMessage());
         }
-
         return true;
     }
 

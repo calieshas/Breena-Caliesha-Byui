@@ -6,8 +6,11 @@
 package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.QuestionControl;
+import byui.cit260.byuiSeekAndFind.exception.QuestionControlException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -114,28 +117,15 @@ class QuestionOneView {
         } catch (NumberFormatException nf) {
             System.out.println("You must enter a integer");
         }
-        int result = QuestionControl.calcQuestionAnswerCost(randomStudent, randomTextbook, randomAmount, answer);
-        switch (result) {
-            case -1:
-                System.out.println("An error occurred with the number of Student, Textbooks, or Amount.");
-                break;
-            case 0:
-                System.out.println("------------------------------------------------------"
-                        + "\nYour Answer is incorrect, you lost a life! "
-                        + "\nThe correct answer was: "
-                        // get actual answer
-                        + "answer"
-                        + "\nYou have " + "#" + " lives remaining."
-                        + "\n------------------------------------------------------");
-// get the number of lives^
-                break;
-            default:
-                System.out.println("*******************************************************"
-                        + "\nCONGRATULATIONS!!! You avoided the trap!"
-                        + "\n*******************************************************");
 
+        try {
+            QuestionControl.calcQuestionAnswerCost(randomStudent, randomTextbook, randomAmount, answer);
+            System.out.println("*******************************************************"
+                    + "\nCONGRATULATIONS!!! You avoided the trap!"
+                    + "\n*******************************************************");
+        } catch (QuestionControlException ex) {
+            System.out.println(ex.getMessage());
         }
-
         return true;
     }
 
