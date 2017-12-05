@@ -5,6 +5,9 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
+import byuiseekandfind.ByuiSeekAndFind;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -12,6 +15,11 @@ import java.util.Scanner;
  * @author calie
  */
 public abstract class View implements ViewInterface {
+    
+    private String message;
+    
+    protected final BufferedReader keyboard = ByuiSeekAndFind.getInFile();
+    protected final PrintWriter console = ByuiSeekAndFind.getOutFile();
 
     public View() {
     }
