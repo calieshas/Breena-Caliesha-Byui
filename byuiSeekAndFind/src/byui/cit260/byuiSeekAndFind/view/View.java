@@ -7,8 +7,11 @@ package byui.cit260.byuiSeekAndFind.view;
 
 import byuiseekandfind.ByuiSeekAndFind;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,10 +48,13 @@ public abstract class View implements ViewInterface {
         boolean valid = false;
         while (!valid) {
 
-            Scanner userInputs = new Scanner(System.in);
-            String value;
+            String value = null;
             System.out.println(promptMessage);
-            value = userInputs.nextLine().trim();
+            try {
+                value = this.keyboard.readLine().trim();
+            } catch (IOException ex) {
+                ErrorView.display("View", "Error Getting input");
+            }
 
             if (value.length() < 1) {
                 System.out.println("You must enter a value.");

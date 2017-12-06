@@ -14,23 +14,10 @@ import java.util.Scanner;
  *
  * @author breen
  */
-class GameMenuView {
+class GameMenuView extends View{
 
-    public void displayGameMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q")
-                    || inputs.length < 1
-                    || inputs == null) {
-                return;
-            }
 
-            endView = doAction(inputs);
-        } while (!endView);
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
         String[] inputs = new String[1];
         System.out.println("Choose one of the following:"
                 + "\nV - View Map"
@@ -41,27 +28,14 @@ class GameMenuView {
                 + "\nM - Move person to new location"
                 + "\nT - Test questions"
                 + "\nH - Help" + "\nQ - Quit");
-
-        boolean valid = false;
-        while (!valid) {
-
-            Scanner userInputs = new Scanner(System.in);
-            String gameLetter;
-            System.out.println("Enter a letter");
-            gameLetter = userInputs.nextLine().trim();
-
-            if (gameLetter.length() < 1) {
-                System.out.println("You must enter a value.");
-                continue;
-            }
-            inputs[0] = gameLetter;
-            valid = true;
-        }
+        
+        String gameLetter = this.getInput("Enter a letter");
+        inputs[0] = gameLetter;
 
         return inputs;
     }
-
-    private boolean doAction(String[] inputs) {
+@Override
+    public boolean doAction(String[] inputs) {
         String gameItem = inputs[0];
         gameItem = gameItem.toUpperCase();
 
@@ -93,7 +67,7 @@ class GameMenuView {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display("GameMenuView", "Invalid menu item.");
         }
 
         return false;
