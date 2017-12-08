@@ -20,6 +20,9 @@ import byui.cit260.byuiSeekAndFind.model.Scene;
 import byui.cit260.byuiSeekAndFind.model.SceneType;
 import byui.cit260.byuiSeekAndFind.model.TrapScene;
 import byuiseekandfind.ByuiSeekAndFind;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -36,6 +39,17 @@ public class GameControl {
         player.setName(name);
         ByuiSeekAndFind.setPlayer(player);
         return player;
+    }
+    
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+        if (game == null || filePath == null) {
+            throw new GameControlException("Input is invaild");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))){
+            out.writeObject(game);
+        } catch (IOException ex){
+            throw new GameControlException(ex.getMessage());
+        }
     }
     
 
