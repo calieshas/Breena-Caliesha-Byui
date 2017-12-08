@@ -28,10 +28,10 @@ class GameMenuView extends View {
                 + "\nI - View list of items"
                 + "\nA - View list of actors"
                 + "\nL - View location of actors"
-                + "\nS - View percent explored"
-                + "\nM - Move person to new location"
+                + "\nP - View percent explored"
+                + "\nM - Move actor to new location"
                 + "\nT - Test questions"
-                + "\nG - Save the Game"
+                + "\nS - Save the Game"
                 + "\nH - Help"
                 + "\nQ - Quit"
                 + "\n----------------------------------------------------");
@@ -60,7 +60,7 @@ class GameMenuView extends View {
             case "L":
                 locationPlayers();
                 break;
-            case "S":
+            case "P":
                 percentExplored();
                 break;
             case "M":
@@ -69,7 +69,7 @@ class GameMenuView extends View {
             case "T":
                 testQuestion();
                 break;
-            case "G":
+            case "S":
                 saveGame();
                 break;
             case "H":

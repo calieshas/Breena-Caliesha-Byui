@@ -48,7 +48,8 @@ public class HelpMenuView extends View {
     }
 
     private void gameGoal() {
-        this.console.println("game goal called");
+        GameGoalView gameGoalView = new GameGoalView();
+        gameGoalView.display();
     }
 
     private void howMove() {

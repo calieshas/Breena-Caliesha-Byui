@@ -23,7 +23,7 @@ public class MainMenuView extends View {
 
         String[] inputs = new String[1];
         this.console.println("Choose one of the following:" + "\nG - Start game"
-                + "\nH - Get help on how to play the game" + "\nR - Restart game" + "\nQ - Quit");
+                + "\nH - Help Menu" + "\nR - Restart game" + "\nQ - Quit");
 
         inputs[0] = this.getInput("\nEnter a menu item");
 
