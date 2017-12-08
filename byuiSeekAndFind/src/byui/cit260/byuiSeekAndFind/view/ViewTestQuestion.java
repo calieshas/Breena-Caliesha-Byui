@@ -71,17 +71,17 @@ class ViewTestQuestion {
 
     private void questionOne() {
         QuestionOneView questionOneView = new QuestionOneView();
-        questionOneView.displayQuestionOneView();
+//        questionOneView.displayQuestionOneView();
     }
 
     private void questionTwo() {
         QuestionTwoView questionTwoView = new QuestionTwoView();
-        questionTwoView.displayQuestionTwoView();
+//        questionTwoView.displayQuestionTwoView();
     }
     
     private void questionThree() {
         QuestionThreeView questionThreeView = new QuestionThreeView();
-        questionThreeView.displayQuestionThreeView();
+//        questionThreeView.displayQuestionThreeView();
     }
     
 }

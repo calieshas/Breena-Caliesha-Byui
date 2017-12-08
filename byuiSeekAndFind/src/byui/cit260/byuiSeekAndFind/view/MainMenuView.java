@@ -60,8 +60,9 @@ public class MainMenuView extends View {
             this.console.println(ex.getMessage());
             return;
         }
+        
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
 
     private void getHelp() {

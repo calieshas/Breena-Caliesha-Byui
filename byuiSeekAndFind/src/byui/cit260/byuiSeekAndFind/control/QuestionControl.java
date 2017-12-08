@@ -15,8 +15,8 @@ import byuiseekandfind.ByuiSeekAndFind;
  */
 public class QuestionControl {
 
-    public static void calcQuestionAnswer(double height, double base1,
-            double base2, double answer) throws QuestionControlException {
+    public static void calcQuestionAnswer(int height, int base1,
+            int base2, int answer) throws QuestionControlException {
         if (height < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
@@ -78,20 +78,21 @@ public class QuestionControl {
     }
     
 // need to change the int numberStudents, this just has numbers in it very little words
+    // Lots of Problems 
 
-    public static void calcQuestionAnswerNegAlgebra(int numberStudent, int numberTextbook,
-            int cost, int answer) throws QuestionControlException {
+    public static void calcQuestionAnswerNegAlgebra(int number1, int number2,
+            int number3, int answer) throws QuestionControlException {
         // add throws to method signature ^ 
-        if (numberStudent < 0) {
+        if (number1 < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
-        if (numberTextbook < 0) {
+        if (number2 < 0) {
             throw new QuestionControlException("Length must be 0 or greater");
         }
-        if (cost < 0) {
+        if (number3 < 0) {
             throw new QuestionControlException("Width must be 0 or greater");
         }
-        int totalCost = numberStudent * numberTextbook * cost;
+        int totalCost = number1 * number2 * number3;
         if (answer != totalCost) {
             throw new QuestionControlException("Answer is incorrect");
         }

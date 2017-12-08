@@ -23,7 +23,7 @@ class GameMenuView extends View {
                 + "\n----------------------------------------------------"
                 + "\n|  GAME MENU                                       |"
                 + "\n----------------------------------------------------"
-                + "Choose one of the following:"
+                + "\nChoose one of the following:"
                 + "\nV - View Map"
                 + "\nI - View list of items"
                 + "\nA - View list of actors"
@@ -36,7 +36,7 @@ class GameMenuView extends View {
                 + "\nQ - Quit"
                 + "\n----------------------------------------------------");
 
-        String gameLetter = this.getInput("Enter a letter");
+        String gameLetter = this.getInput("\nEnter a letter");
         inputs[0] = gameLetter;
 
         return inputs;
@@ -143,7 +143,8 @@ class GameMenuView extends View {
     }
 
     private void saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
     }
 
 }
