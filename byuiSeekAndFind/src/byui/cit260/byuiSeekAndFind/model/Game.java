@@ -24,9 +24,20 @@ public class Game implements Serializable {
  //   private Arraylist <Item> items = new Arraylist<Item>();
     private ArrayList <Actor> actors = new ArrayList<Actor>();
     private int incorrectQuestions = 0;
+    private Question[] questions;
     
     public Game() {
     }
+
+    public Question[] getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Question[] questions) {
+        this.questions = questions;
+    }
+    
+    
 
     public ArrayList<Actor> getActors() {
         return actors;

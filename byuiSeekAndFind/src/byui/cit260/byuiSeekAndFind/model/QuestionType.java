@@ -13,6 +13,6 @@ public enum QuestionType {
     volume, 
     area, 
     textbook, 
-    programming, 
-    humanities;
+    posAlgebra, 
+    negAlgebra;
 }

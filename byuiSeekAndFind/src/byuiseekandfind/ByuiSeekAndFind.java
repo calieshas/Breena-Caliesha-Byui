@@ -7,6 +7,7 @@ package byuiseekandfind;
 
 import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Player;
+import byui.cit260.byuiSeekAndFind.view.ErrorView;
 import byui.cit260.byuiSeekAndFind.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class ByuiSeekAndFind {
     public static void main(String[] args) {
         try {
             ByuiSeekAndFind.inFile = new BufferedReader(new InputStreamReader(System.in));
+// i don't know what to do with this system.out in this case ------------------------------------------------------------
             ByuiSeekAndFind.outFile = new PrintWriter(System.out, true);
             
             String filePath = "log.txt";
@@ -43,10 +45,10 @@ public class ByuiSeekAndFind {
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
         } catch (Throwable t) {
-            System.out.println("Exception: " + t.toString() +
+            ErrorView.display("ByuiSeekAndFind", "Exception: " + t.toString() +
                                "\nCause: " + t.getCause() +
                                "\nMessage: " + t.getMessage());
-            System.out.println("Start program failed");
+            ErrorView.display("ByuiSeekAndFind", "Start program failed");
             t.printStackTrace();
             return;
         }
@@ -59,7 +61,7 @@ public class ByuiSeekAndFind {
                 if (ByuiSeekAndFind.logFile != null)
                     ByuiSeekAndFind.logFile.close();
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("ByuiSeekAndFind", "Error closing files");
                 return;
             }
         }

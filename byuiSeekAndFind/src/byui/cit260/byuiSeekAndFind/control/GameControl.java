@@ -53,6 +53,7 @@ public class GameControl {
         Item[] items = GameControl.createItems();
         game.setItems(items);
 
+
         Map map = GameControl.createMap(5, 5, items);
         if (map == null) {
             throw new GameControlException("map can't be null");
@@ -131,7 +132,7 @@ public class GameControl {
     }
 
     private static Location[][] createLocations(int rowCount, int columnCount) throws GameControlException {
-        System.out.println("createLocations() called");
+//        System.out.println("createLocations() called");
         if(rowCount < 1 || columnCount < 1) {
         throw new GameControlException("Row count and Column count can't be less then 1");
         }
@@ -155,7 +156,7 @@ public class GameControl {
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[25];
         
-        Scene scene1 = new TrapScene();
+        TrapScene scene1 = new TrapScene();
         scene1.setSymbol("X");
         scene1.setDescription("Trap Scene");
         scenes[SceneType.question1.ordinal()] = scene1;
@@ -180,7 +181,7 @@ public class GameControl {
         scene5.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene5;
         
-        Scene scene6 = new ItemScene();
+        ItemScene scene6 = new ItemScene();
         scene6.setSymbol("1");
         scene6.setDescription("computer");
         scenes[SceneType.computer.ordinal()] = scene6;
@@ -190,7 +191,7 @@ public class GameControl {
         scene7.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene7;
         
-        Scene scene8 = new ItemScene();
+        ItemScene scene8 = new ItemScene();
         scene8.setSymbol(" ");
         scene8.setDescription("phone");
         scenes[SceneType.phone.ordinal()] = scene8;
@@ -200,7 +201,7 @@ public class GameControl {
         scene9.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene9;
         
-        Scene scene10 = new TrapScene();
+        TrapScene scene10 = new TrapScene();
         scene10.setSymbol("X");
         scene10.setDescription("Trap Scene");
         scenes[SceneType.question2.ordinal()] = scene10;
@@ -235,27 +236,27 @@ public class GameControl {
         scene16.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene16;
         
-        Scene scene17 = new TrapScene();
+        TrapScene scene17 = new TrapScene();
         scene17.setSymbol("X");
         scene17.setDescription("Trap Scene");
         scenes[SceneType.question3.ordinal()] = scene17;
         
-        Scene scene18 = new ItemScene();
+        ItemScene scene18 = new ItemScene();
         scene18.setSymbol("3");
         scene18.setDescription("Significant Other");
         scenes[SceneType.significant.ordinal()] = scene18;
         
-        Scene scene19 = new TrapScene();
+        TrapScene scene19 = new TrapScene();
         scene19.setSymbol("X");
         scene19.setDescription("Trap Scene");
         scenes[SceneType.question4.ordinal()] = scene19;
         
-        Scene scene20 = new ItemScene();
+        ItemScene scene20 = new ItemScene();
         scene20.setSymbol("1");
         scene20.setDescription("Professor");
         scenes[SceneType.professor.ordinal()] = scene20;
         
-        Scene scene21 = new ItemScene();
+        ItemScene scene21 = new ItemScene();
         scene21.setSymbol("1");
         scene21.setDescription("Textbook");
         scenes[SceneType.textbook.ordinal()] = scene21;
@@ -265,7 +266,7 @@ public class GameControl {
         scene22.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene22;
         
-        Scene scene23 = new TrapScene();
+        TrapScene scene23 = new TrapScene();
         scene23.setSymbol("X");
         scene23.setDescription("Trap Scene");
         scenes[SceneType.question5.ordinal()] = scene23;
@@ -282,7 +283,7 @@ public class GameControl {
         
 //-------------------------- ... ---------------------------------        
         
-        System.out.println("CreateScenes() called");
+//        System.out.println("CreateScenes() called");
         return scenes;
     }
 
@@ -293,29 +294,53 @@ public class GameControl {
         Question[] questions = new Question[5];
         
         Question question1 = new Question();
-        question1.setQuestionType("Math");
+        question1.setQuestionType(QuestionType.volume);
         question1.setAnswer(1);
+        String question = 
+                "A table has a height of randomHeight"
+                + " and has a top length of randomBase1 and a bottom length of "
+                + "randomBase2 what is the area of the table?";
+        
+        question1.setQuestionDescription(question);
         questions[QuestionType.volume.ordinal()] = question1;
         
         Question question2 = new Question();
-        question2.setQuestionType("Math");
+        question2.setQuestionType(QuestionType.area);
         question2.setAnswer(1);
+        question = 
+                "A room has a height of randomHeight"
+                + " and length of randomLength and a width of "
+                + "randomWidth what is the volume of the room?";
+        question2.setQuestionDescription(question);
         questions[QuestionType.area.ordinal()] = question2;
         
         Question question3 = new Question();
-        question3.setQuestionType("Math");
+        question3.setQuestionType(QuestionType.textbook);
         question3.setAnswer(1);
+        question = 
+                "randomStudent students are going to buy textbooks. "
+                + "They each need  randomTextbook textbooks. If each textbook costs $ randomAmount ,"
+                + " how much will be spent on textbooks total?";
+        question3.setQuestionDescription(question);
         questions[QuestionType.textbook.ordinal()] = question3;
         
         Question question4 = new Question();
-        question4.setQuestionType("Programming");
+        question4.setQuestionType(QuestionType.posAlgebra);
         question4.setAnswer(1);
-        questions[QuestionType.programming.ordinal()] = question4;
+        question = 
+                "randomNumber1 * x - randomNumber2 = randomNumber3"
+                + "Solve for x.";
+        question4.setQuestionDescription(question);
+        questions[QuestionType.posAlgebra.ordinal()] = question4;
         
         Question question5 = new Question();
-        question5.setQuestionType("humanities");
+        question5.setQuestionType(QuestionType.negAlgebra);
         question5.setAnswer(1);
-        questions[QuestionType.humanities.ordinal()] = question5;
+        question = 
+                "randomNumber + randomNumber2 z = randomNumber3"
+                + "Solve for z.";
+        question5.setQuestionDescription(question);
+        questions[QuestionType.negAlgebra.ordinal()] = question5;
         
 //----------------------------------- ... --------------------------------------
  
@@ -334,10 +359,10 @@ public class GameControl {
         trapScene.setQuestion(questions[QuestionType.textbook.ordinal()]);
         
         trapScene = (TrapScene)scenes[SceneType.question4.ordinal()];
-        trapScene.setQuestion(questions[QuestionType.programming.ordinal()]);
+        trapScene.setQuestion(questions[QuestionType.posAlgebra.ordinal()]);
         
         trapScene = (TrapScene)scenes[SceneType.question5.ordinal()];
-        trapScene.setQuestion(questions[QuestionType.humanities.ordinal()]);
+        trapScene.setQuestion(questions[QuestionType.negAlgebra.ordinal()]);
 
     }
 

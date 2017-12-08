@@ -21,7 +21,7 @@ public class StartProgramView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("Welcome to BYU-Idaho Seek and Find");
+        this.console.println("Welcome to BYU-Idaho Seek and Find");
 
         inputs[0] = this.getInput("\nEnter players name");
 
@@ -34,15 +34,15 @@ public class StartProgramView extends View {
         try {
             player = GameControl.savePlayer(playersName);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
             return false;
         }
         if (player == null) {
-            System.out.println("Could not creat the player. " + "\nEnter a different name.");
+            this.console.println("Could not creat the player. " + "\nEnter a different name.");
             return false;
         }
 
-        System.out.println("================================================= "
+        this.console.println("================================================= "
                 + "\nWelcome to the game " + playersName + "\nWe hope you have a lot of fun!"
                 + "\n================================================= ");
 

@@ -49,7 +49,7 @@ public abstract class View implements ViewInterface {
         while (!valid) {
 
             String value = null;
-            System.out.println(promptMessage);
+            this.console.println(promptMessage);
             try {
                 value = this.keyboard.readLine().trim();
             } catch (IOException ex) {
@@ -57,7 +57,7 @@ public abstract class View implements ViewInterface {
             }
 
             if (value.length() < 1) {
-                System.out.println("You must enter a value.");
+                ErrorView.display("View", "You must enter a value.");
                 continue;
             }
             return value;

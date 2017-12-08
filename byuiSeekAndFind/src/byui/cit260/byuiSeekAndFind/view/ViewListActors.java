@@ -16,7 +16,7 @@ class ViewListActors extends View {
      public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("=================================================================================================================================="
+        this.console.println("=================================================================================================================================="
                 + "\nIn this game there are three actors:" + "\n-Male Student"
                 + "\n-Female Student" + "\n-Professor" 
                 + "\nEach of these actors can be moved individually to different spaces to collect each of the items required to complete the game." 
@@ -36,7 +36,7 @@ class ViewListActors extends View {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display("ViewListActors", "Invalid menu item.");
         }
 
         return false;

@@ -22,7 +22,7 @@ public class MainMenuView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nG - Start game"
+        this.console.println("Choose one of the following:" + "\nG - Start game"
                 + "\nH - Get help on how to play the game" + "\nR - Restart game" + "\nQ - Quit");
 
         inputs[0] = this.getInput("\nEnter a menu item");
@@ -47,7 +47,7 @@ public class MainMenuView extends View {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display("MainMenuView", "Invalid menu item.");
         }
         return false;
     }
@@ -57,7 +57,7 @@ public class MainMenuView extends View {
         try {
             GameControl.createNewGame(player);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
             return;
         }
         GameMenuView gameMenuView = new GameMenuView();

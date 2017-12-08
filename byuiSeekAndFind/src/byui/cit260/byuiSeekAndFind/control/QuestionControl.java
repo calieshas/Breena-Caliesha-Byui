@@ -28,17 +28,17 @@ public class QuestionControl {
         }
         double area = (base1 + base2) / 2 * height;
         if (answer != area) {
-            throw new QuestionControlException("------------------------------------------------------\n" 
-                        + "\nYour Answer is incorrect, you lost a life! \n" 
-                        + "\nThe correct answer was: \n" 
-                        + area 
-                        + "\nYou have  + # +  lives remaining.\n" 
-                        + "\n------------------------------------------------------");
+            throw new QuestionControlException("------------------------------------------------------\n"
+                    + "\nYour Answer is incorrect, you lost a life! \n"
+                    + "\nThe correct answer was: \n"
+                    + area
+                    + "\nYou have  + # +  lives remaining.\n"
+                    + "\n------------------------------------------------------");
         }
     }
 
     public static void calcQuestionAnswerVolume(int height, int length,
-            int width, int answer) throws QuestionControlException{
+            int width, int answer) throws QuestionControlException {
         if (height < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
@@ -54,8 +54,8 @@ public class QuestionControl {
         }
     }
 
-    public static void calcQuestionAnswerCost(int numberStudent, int numberTextbook, 
-            int cost, int answer)throws QuestionControlException {
+    public static void calcQuestionAnswerCost(int numberStudent, int numberTextbook,
+            int cost, int answer) throws QuestionControlException {
         // add throws to method signature ^ 
         if (numberStudent < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
@@ -76,5 +76,51 @@ public class QuestionControl {
         }
         // change int in method signature to voide and delete return 0 
     }
+    
+// need to change the int numberStudents, this just has numbers in it very little words
 
+    public static void calcQuestionAnswerNegAlgebra(int numberStudent, int numberTextbook,
+            int cost, int answer) throws QuestionControlException {
+        // add throws to method signature ^ 
+        if (numberStudent < 0) {
+            throw new QuestionControlException("Height must be 0 or greater");
+        }
+        if (numberTextbook < 0) {
+            throw new QuestionControlException("Length must be 0 or greater");
+        }
+        if (cost < 0) {
+            throw new QuestionControlException("Width must be 0 or greater");
+        }
+        int totalCost = numberStudent * numberTextbook * cost;
+        if (answer != totalCost) {
+            throw new QuestionControlException("Answer is incorrect");
+        }
+        Game game = ByuiSeekAndFind.getCurrentGame();
+        if (game != null) {
+            game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
+        }
+    }
+// need to change the int numberStudents, this just has numbers in it very little words
+    public static void calcQuestionAnswerPosAlgebra(int numberStudent, int numberTextbook,
+            int cost, int answer) throws QuestionControlException {
+        // add throws to method signature ^ 
+        if (numberStudent < 0) {
+            throw new QuestionControlException("Height must be 0 or greater");
+        }
+        if (numberTextbook < 0) {
+            throw new QuestionControlException("Length must be 0 or greater");
+        }
+        if (cost < 0) {
+            throw new QuestionControlException("Width must be 0 or greater");
+        }
+        int totalCost = numberStudent * numberTextbook * cost;
+        if (answer != totalCost) {
+            throw new QuestionControlException("Answer is incorrect");
+        }
+        Game game = ByuiSeekAndFind.getCurrentGame();
+        if (game != null) {
+            game.setIncorrectQuestions(game.getIncorrectQuestions() + 1);
+        }
+        // change int in method signature to voide and delete return 0 
+    }
 }

@@ -14,7 +14,7 @@ class ViewListItems extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("=================================================================================================================================="
+        this.console.println("=================================================================================================================================="
                 + "\nYou will be collecting these items:" + "\n-Textbook"
                 + "\n-Phone" +"\n-Computer" +"\n-Significant Other" +"\n-Professor" 
                 + "\nYou will need to collect all these items to win the game." 
@@ -34,7 +34,7 @@ class ViewListItems extends View {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display("ViewListItems", "Invalid menu item.");
         }
 
         return false;

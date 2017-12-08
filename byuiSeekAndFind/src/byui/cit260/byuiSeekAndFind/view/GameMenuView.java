@@ -14,12 +14,16 @@ import java.util.Scanner;
  *
  * @author breen
  */
-class GameMenuView extends View{
-
+class GameMenuView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:"
+        this.console.println(
+                "\n"
+                + "\n----------------------------------------------------"
+                + "\n|  GAME MENU                                       |"
+                + "\n----------------------------------------------------"
+                + "Choose one of the following:"
                 + "\nV - View Map"
                 + "\nI - View list of items"
                 + "\nA - View list of actors"
@@ -27,14 +31,18 @@ class GameMenuView extends View{
                 + "\nS - View percent explored"
                 + "\nM - Move person to new location"
                 + "\nT - Test questions"
-                + "\nH - Help" + "\nQ - Quit");
-        
+                + "\nG - Save the Game"
+                + "\nH - Help"
+                + "\nQ - Quit"
+                + "\n----------------------------------------------------");
+
         String gameLetter = this.getInput("Enter a letter");
         inputs[0] = gameLetter;
 
         return inputs;
     }
-@Override
+
+    @Override
     public boolean doAction(String[] inputs) {
         String gameItem = inputs[0];
         gameItem = gameItem.toUpperCase();
@@ -61,6 +69,9 @@ class GameMenuView extends View{
             case "T":
                 testQuestion();
                 break;
+            case "G":
+                saveGame();
+                break;
             case "H":
                 getHelp();
                 break;
@@ -76,24 +87,24 @@ class GameMenuView extends View{
     private void viewMap() {
         Game game = ByuiSeekAndFind.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
-        System.out.println("     BYU-I Seek And Find");
-        System.out.print("     0    1    2    3    4");
+        this.console.println("     BYU-I Seek And Find");
+        this.console.print("     0    1    2    3    4");
 
         for (int row = 0; row < locations.length; row++) {
-            System.out.println("\n-----------------------------");
-            System.out.print(row);
-            for (int column = 0; column < locations[row].length; column++ ) {
-                System.out.print(" |");
+            this.console.println("\n-----------------------------");
+            this.console.print(row);
+            for (int column = 0; column < locations[row].length; column++) {
+                this.console.print(" |");
                 Location location = locations[row][column];
-                    if (location.isVisited()) {
-                        System.out.print(location.getScene().getSymbol());
-                    }
-                    else 
-                        System.out.print(" --");
+                if (location.isVisited()) {
+                    this.console.print(location.getScene().getSymbol());
+                } else {
+                    this.console.print(" --");
+                }
             }
-            System.out.print(" |");
+            this.console.print(" |");
         }
-        System.out.println("\n-----------------------------");
+        this.console.println("\n-----------------------------");
     }
 
     private void listItems() {
@@ -129,6 +140,10 @@ class GameMenuView extends View{
     private void testQuestion() {
         ViewTestQuestion viewTestQuestion = new ViewTestQuestion();
         viewTestQuestion.displayViewTestQuestion();
+    }
+
+    private void saveGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

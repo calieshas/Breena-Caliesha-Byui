@@ -15,17 +15,26 @@ import java.util.Objects;
  */
 public class Question implements Serializable{
     
-    private String questionType;
+    private QuestionType questionType;
     private int answer;
+    private String questionDescription;
 
     public Question() {
     }
+
+    public String getQuestionDescription() {
+        return questionDescription;
+    }
+
+    public void setQuestionDescription(String questionDescription) {
+        this.questionDescription = questionDescription;
+    }
     
-    public String getQuestionType() {
+    public QuestionType getQuestionType() {
         return questionType;
     }
 
-    public void setQuestionType(String questionType) {
+    public void setQuestionType(QuestionType questionType) {
         this.questionType = questionType;
     }
 

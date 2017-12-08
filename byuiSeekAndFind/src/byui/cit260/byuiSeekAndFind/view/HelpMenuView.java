@@ -16,7 +16,7 @@ public class HelpMenuView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        System.out.println("Choose one of the following:" + "\nG - What is the goal of the game?"
+        this.console.println("Choose one of the following:" + "\nG - What is the goal of the game?"
                 + "\nM - How to move" + "\nE - Estimating the amount of items in game" + "\nQ - Quit");
 
         inputs[0] = this.getInput("\nEnter a menu item");
@@ -41,22 +41,22 @@ public class HelpMenuView extends View {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display("HelpMenuView", "Invalid menu item.");
         }
 
         return false;
     }
 
     private void gameGoal() {
-        System.out.println("game goal called");
+        this.console.println("game goal called");
     }
 
     private void howMove() {
-        System.out.println("how move called");
+        this.console.println("how move called");
     }
 
     private void estimateItems() {
-        System.out.println("estimate items called");
+        this.console.println("estimate items called");
     }
 
 }

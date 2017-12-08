@@ -7,8 +7,12 @@ package byui.cit260.byuiSeekAndFind.view;
 
 import byui.cit260.byuiSeekAndFind.control.MapControl;
 import byui.cit260.byuiSeekAndFind.exception.MapControlException;
+import byui.cit260.byuiSeekAndFind.model.Game;
 import byui.cit260.byuiSeekAndFind.model.Location;
+import byui.cit260.byuiSeekAndFind.model.Scene;
+import byui.cit260.byuiSeekAndFind.model.TrapScene;
 import byuiseekandfind.ByuiSeekAndFind;
+import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +28,7 @@ class ViewMoveActor extends View {
      @Override
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("Enter the coordinates of new location.");
+        this.console.println("Enter the coordinates of new location.");
         inputs[0] = this.getInput("Enter the row number.");
         
         inputs[1] = this.getInput("Enter the column number.");
@@ -42,15 +46,24 @@ class ViewMoveActor extends View {
         row2 = Integer.parseInt(row);
         column2 = Integer.parseInt(column);
         } catch (NumberFormatException nf){
-            System.out.println(nf.getMessage());
+            this.console.println(nf.getMessage());
             return false;
         }
+        Location newLocation = null;
         try {
-            Location newLocation = MapControl.moveActor(ByuiSeekAndFind.getPlayer().getActor(), row2, column2);
-            System.out.println(newLocation.getScene().getDescription()); 
+            newLocation = MapControl.moveActor(ByuiSeekAndFind.getPlayer().getActor(), row2, column2);
+            this.console.println(newLocation.getScene().getDescription()); 
         } catch (MapControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
+            return false;
         }
+        
+        Scene scene = newLocation.getScene();
+        if (scene instanceof TrapScene){
+           QuestionView questionView = new QuestionView();
+            questionView.display(); 
+        }
+
         
        return true;
     }
