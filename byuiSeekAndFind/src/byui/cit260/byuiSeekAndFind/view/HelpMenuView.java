@@ -53,7 +53,8 @@ public class HelpMenuView extends View {
     }
 
     private void howMove() {
-        this.console.println("how move called");
+        HowMoveView howMoveView = new HowMoveView();
+        howMoveView.display();
     }
 
     private void estimateItems() {
