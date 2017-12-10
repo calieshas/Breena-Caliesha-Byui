@@ -15,7 +15,8 @@ class HowMoveView extends View{
 
         String[] inputs = new String[1];
         this.console.println("=================================================================================================================================="
-                + "\n..."
+                + "\nWhen you want to move in this game you go to the game menu and choose the option called: move actor to new location."
+                + "\nWhen prompted, select which actor you want to move, then which row and column you want to move them to."
                 + "\nQ - Quit"
                 + "\n==================================================================================================================================");
 
