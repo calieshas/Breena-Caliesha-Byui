@@ -43,6 +43,7 @@ public class MapControl {
        newLocation.getActors().add(actor);
        actor.getCoordinates().x = newRow;
        actor.getCoordinates().y = newColumn;
+       newLocation.setVisited(true);
        return newLocation;
  
     }

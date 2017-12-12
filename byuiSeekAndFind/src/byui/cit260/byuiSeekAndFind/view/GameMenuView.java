@@ -129,7 +129,7 @@ class GameMenuView extends View {
 
     private void movePerson() {
         ViewMoveActor viewMoveActor = new ViewMoveActor();
-        viewMoveActor.displayViewMoveActor();
+        viewMoveActor.display();
     }
 
     private void getHelp() {

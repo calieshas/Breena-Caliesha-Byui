@@ -141,13 +141,14 @@ public class GameControl {
         Question[] questions = GameControl.createQuestions();
         GameControl.assignQuestionsToScenes(questions, scenes);
         GameControl.assignItemsToScenes(items, scenes);
+        GameControl.assignScenesToLocations(scenes, locations);
         return map;
       
     }
 
     private static Location[][] createLocations(int rowCount, int columnCount) throws GameControlException {
 //        System.out.println("createLocations() called");
-        if(rowCount < 1 || columnCount < 1) {
+        if(rowCount < 0 || columnCount < 0) {
         throw new GameControlException("Row count and Column count can't be less then 1");
         }
         Location[][] locations = new Location[rowCount][columnCount];
@@ -171,127 +172,127 @@ public class GameControl {
         Scene[] scenes = new Scene[25];
         
         TrapScene scene1 = new TrapScene();
-        scene1.setSymbol("X");
+        scene1.setSymbol(" X ");
         scene1.setDescription("Trap Scene");
         scenes[SceneType.question1.ordinal()] = scene1;
         
         Scene scene2 = new Scene();
-        scene2.setSymbol("1");
+        scene2.setSymbol(" 1 ");
         scene2.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene2;    
         
         Scene scene3 = new Scene();
-        scene3.setSymbol(" ");
+        scene3.setSymbol("   ");
         scene3.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene3;
         
         Scene scene4 = new Scene();
-        scene4.setSymbol("1");
+        scene4.setSymbol(" 1 ");
         scene4.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene4;
         
         Scene scene5 = new Scene();
-        scene5.setSymbol("1");
+        scene5.setSymbol(" 1 ");
         scene5.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene5;
         
         ItemScene scene6 = new ItemScene();
-        scene6.setSymbol("1");
+        scene6.setSymbol(" 1 ");
         scene6.setDescription("computer");
         scenes[SceneType.computer.ordinal()] = scene6;
         
         Scene scene7 = new Scene();
-        scene7.setSymbol(" ");
+        scene7.setSymbol("   ");
         scene7.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene7;
         
         ItemScene scene8 = new ItemScene();
-        scene8.setSymbol(" ");
+        scene8.setSymbol("   ");
         scene8.setDescription("phone");
         scenes[SceneType.phone.ordinal()] = scene8;
         
         Scene scene9 = new Scene();
-        scene9.setSymbol("1");
+        scene9.setSymbol(" 1 ");
         scene9.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene9;
         
         TrapScene scene10 = new TrapScene();
-        scene10.setSymbol("X");
+        scene10.setSymbol(" X ");
         scene10.setDescription("Trap Scene");
         scenes[SceneType.question2.ordinal()] = scene10;
         
         Scene scene11 = new Scene();
-        scene11.setSymbol("1");
+        scene11.setSymbol(" 1 ");
         scene11.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene11;
         
         Scene scene12 = new Scene();
-        scene12.setSymbol("1");
+        scene12.setSymbol(" 1 ");
         scene12.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene12;
         
         Scene scene13 = new Scene();
-        scene13.setSymbol("2");
+        scene13.setSymbol(" 2 ");
         scene13.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene13;
         
         Scene scene14 = new Scene();
-        scene14.setSymbol("2");
+        scene14.setSymbol(" 2 ");
         scene14.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene14;
         
         Scene scene15 = new Scene();
-        scene15.setSymbol("2");
+        scene15.setSymbol(" 2 ");
         scene15.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene15;
         
         Scene scene16 = new Scene();
-        scene16.setSymbol("1");
+        scene16.setSymbol(" 1 ");
         scene16.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene16;
         
         TrapScene scene17 = new TrapScene();
-        scene17.setSymbol("X");
+        scene17.setSymbol(" X ");
         scene17.setDescription("Trap Scene");
         scenes[SceneType.question3.ordinal()] = scene17;
         
         ItemScene scene18 = new ItemScene();
-        scene18.setSymbol("3");
+        scene18.setSymbol(" 3 ");
         scene18.setDescription("Significant Other");
         scenes[SceneType.significant.ordinal()] = scene18;
         
         TrapScene scene19 = new TrapScene();
-        scene19.setSymbol("X");
+        scene19.setSymbol(" X ");
         scene19.setDescription("Trap Scene");
         scenes[SceneType.question4.ordinal()] = scene19;
         
         ItemScene scene20 = new ItemScene();
-        scene20.setSymbol("1");
+        scene20.setSymbol(" 1 ");
         scene20.setDescription("Professor");
         scenes[SceneType.professor.ordinal()] = scene20;
         
         ItemScene scene21 = new ItemScene();
-        scene21.setSymbol("1");
+        scene21.setSymbol(" 1 ");
         scene21.setDescription("Textbook");
         scenes[SceneType.textbook.ordinal()] = scene21;
         
         Scene scene22 = new Scene();
-        scene22.setSymbol("2");
+        scene22.setSymbol(" 2 ");
         scene22.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene22;
         
         TrapScene scene23 = new TrapScene();
-        scene23.setSymbol("X");
+        scene23.setSymbol(" X ");
         scene23.setDescription("Trap Scene");
         scenes[SceneType.question5.ordinal()] = scene23;
         
         Scene scene24 = new Scene();
-        scene24.setSymbol("2");
+        scene24.setSymbol(" 2 ");
         scene24.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene24;
         
         Scene scene25 = new Scene();
-        scene25.setSymbol("1");
+        scene25.setSymbol(" 1 ");
         scene25.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene25;
         

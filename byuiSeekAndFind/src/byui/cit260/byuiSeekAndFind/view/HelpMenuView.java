@@ -17,7 +17,7 @@ public class HelpMenuView extends View {
 
         String[] inputs = new String[1];
         this.console.println("Choose one of the following:" + "\nG - What is the goal of the game?"
-                + "\nM - How to move" + "\nE - Estimating the amount of items in game" + "\nQ - Quit");
+                + "\nM - How to move" + "\nQ - Quit");
 
         inputs[0] = this.getInput("\nEnter a menu item");
 
@@ -34,9 +34,6 @@ public class HelpMenuView extends View {
                 break;
             case "M":
                 howMove();
-                break;
-            case "E":
-                estimateItems();
                 break;
             case "Q":
                 return true;
@@ -57,8 +54,5 @@ public class HelpMenuView extends View {
         howMoveView.display();
     }
 
-    private void estimateItems() {
-        this.console.println("estimate items called");
-    }
 
 }

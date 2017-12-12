@@ -21,9 +21,6 @@ import java.util.logging.Logger;
  * @author breen
  */
 class ViewMoveActor extends View {
-
-    void displayViewMoveActor() {
-    }
     
      @Override
     public String[] getInputs() {

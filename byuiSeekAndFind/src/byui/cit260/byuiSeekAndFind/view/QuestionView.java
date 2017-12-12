@@ -53,7 +53,7 @@ class QuestionView extends View {
         questionDescription.replaceFirst("randomAmount", Integer.toString(randomValue3));
         this.console.println(questionDescription);
 
-        String hint = this.getInput("Do you want a hint");
+        String hint = this.getInput("Do you want a hint Y/N");
         if (hint.toUpperCase().equals("Y")) {
             this.console.println("a hint.");
         }
