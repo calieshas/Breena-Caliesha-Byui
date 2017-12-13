@@ -48,9 +48,9 @@ class QuestionView extends View {
         }
         this.question = scene.getQuestion();
         String questionDescription = question.getQuestionDescription();
-        questionDescription.replaceFirst("randomStudent", Integer.toString(randomValue1));
-        questionDescription.replaceFirst("randomTextbook", Integer.toString(randomValue2));
-        questionDescription.replaceFirst("randomAmount", Integer.toString(randomValue3));
+        questionDescription = questionDescription.replaceFirst("randomNumber1", Integer.toString(randomValue1));
+        questionDescription = questionDescription.replaceFirst("randomNumber2", Integer.toString(randomValue2));
+        questionDescription = questionDescription.replaceFirst("randomNumber3", Integer.toString(randomValue3));
         this.console.println(questionDescription);
 
         String hint = this.getInput("Do you want a hint Y/N");
@@ -66,13 +66,7 @@ class QuestionView extends View {
     @Override
     public boolean doAction(String[] inputs) {
 
-        String value = inputs[0];
-        int answer = 0;
-        try {
-            answer = Integer.parseInt(value);
-        } catch (NumberFormatException nf) {
-            ErrorView.display("QuestionView", "You must enter a integer");
-        }
+        String answer = inputs[0];
 
         try {
             switch (this.question.getQuestionType()) {

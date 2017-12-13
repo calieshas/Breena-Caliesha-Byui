@@ -42,7 +42,7 @@ public class MainMenuView extends View {
                 getHelp();
                 break;
             case "R":
-                restartGame();
+                startSavedGame();
                 break;
             case "Q":
                 return true;
@@ -70,9 +70,9 @@ public class MainMenuView extends View {
         helpMenuView.display();
     }
 
-    private void restartGame() {
-        RestartGameView restartGameView = new RestartGameView();
-        restartGameView.displayRestartGameView();
+    private void startSavedGame() {
+        StartSavedGameView startSavedGameView = new StartSavedGameView();
+        startSavedGameView.display();
     }
 
 }

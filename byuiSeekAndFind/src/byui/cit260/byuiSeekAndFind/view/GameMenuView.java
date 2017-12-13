@@ -30,7 +30,6 @@ class GameMenuView extends View {
                 + "\nL - View location of actors"
                 + "\nP - View percent explored"
                 + "\nM - Move actor to new location"
-                + "\nT - Test questions"
                 + "\nS - Save the Game"
                 + "\nH - Help"
                 + "\nQ - Quit"
@@ -65,9 +64,6 @@ class GameMenuView extends View {
                 break;
             case "M":
                 movePerson();
-                break;
-            case "T":
-                testQuestion();
                 break;
             case "S":
                 saveGame();
@@ -119,12 +115,12 @@ class GameMenuView extends View {
 
     private void locationPlayers() {
         ViewLocationPlayers viewLocationPlayers = new ViewLocationPlayers();
-        viewLocationPlayers.displayViewLocationPlayers();
+        viewLocationPlayers.display();
     }
 
     private void percentExplored() {
         ViewPercentExplored viewPercentExplored = new ViewPercentExplored();
-        viewPercentExplored.displayViewPercentExplored();
+        viewPercentExplored.display();
     }
 
     private void movePerson() {
@@ -135,11 +131,6 @@ class GameMenuView extends View {
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
-    }
-
-    private void testQuestion() {
-        ViewTestQuestion viewTestQuestion = new ViewTestQuestion();
-        viewTestQuestion.displayViewTestQuestion();
     }
 
     private void saveGame() {

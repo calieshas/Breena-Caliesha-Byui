@@ -9,10 +9,19 @@ package byui.cit260.byuiSeekAndFind.view;
  *
  * @author breen
  */
-class ViewPercentExplored {
+class ViewPercentExplored extends View{
 
-    void displayViewPercentExplored() {
-        System.out.println("Percent Explored view called");
+    @Override
+    public String[] getInputs() {
+        System.out.println("view percent explored called");
+        return null;
     }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        System.out.println("view percent explored called");
+        return false;
+    }
+    
     
 }

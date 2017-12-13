@@ -7,6 +7,7 @@ package byui.cit260.byuiSeekAndFind.control;
 
 import byui.cit260.byuiSeekAndFind.exception.QuestionControlException;
 import byui.cit260.byuiSeekAndFind.model.Game;
+import byui.cit260.byuiSeekAndFind.view.ErrorView;
 import byuiseekandfind.ByuiSeekAndFind;
 
 /**
@@ -16,7 +17,7 @@ import byuiseekandfind.ByuiSeekAndFind;
 public class QuestionControl {
 
     public static void calcQuestionAnswer(int height, int base1,
-            int base2, int answer) throws QuestionControlException {
+            int base2, String answerValue) throws QuestionControlException {
         if (height < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
@@ -26,7 +27,16 @@ public class QuestionControl {
         if (base2 < 0) {
             throw new QuestionControlException("Base2 must be 0 or greater");
         }
-        double area = (base1 + base2) / 2 * height;
+        long area = ((base1 + base2) / 2 * height) * 100;
+        
+        long answer = 0;
+        try {
+            answer = (long)(Double.parseDouble(answerValue) * 100);
+            
+        } catch (NumberFormatException nf) {
+            throw new QuestionControlException("You must enter an integer");
+        }
+        
         if (answer != area) {
             throw new QuestionControlException("------------------------------------------------------\n"
                     + "\nYour Answer is incorrect, you lost a life! \n"
@@ -38,7 +48,7 @@ public class QuestionControl {
     }
 
     public static void calcQuestionAnswerVolume(int height, int length,
-            int width, int answer) throws QuestionControlException {
+            int width, String answerValue) throws QuestionControlException {
         if (height < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
@@ -48,14 +58,23 @@ public class QuestionControl {
         if (width < 0) {
             throw new QuestionControlException("Width must be 0 or greater");
         }
-        double volume = width * height * length;
+        long volume = (width * height * length) * 100;
+        
+        long answer = 0;
+        try {
+            answer = (long)(Double.parseDouble(answerValue) * 100);
+            
+        } catch (NumberFormatException nf) {
+            throw new QuestionControlException("You must enter an integer");
+        }
+        
         if (answer != volume) {
             throw new QuestionControlException("Answer is incorrect");
         }
     }
 
     public static void calcQuestionAnswerCost(int numberStudent, int numberTextbook,
-            int cost, int answer) throws QuestionControlException {
+            int cost, String answerValue) throws QuestionControlException {
         // add throws to method signature ^ 
         if (numberStudent < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
@@ -66,7 +85,16 @@ public class QuestionControl {
         if (cost < 0) {
             throw new QuestionControlException("Width must be 0 or greater");
         }
-        int totalCost = numberStudent * numberTextbook * cost;
+        long totalCost = (numberStudent * numberTextbook * cost) * 100;
+        
+        long answer = 0;
+        try {
+            answer = (long)(Double.parseDouble(answerValue) * 100);
+            
+        } catch (NumberFormatException nf) {
+            throw new QuestionControlException("You must enter an integer");
+        }
+        
         if (answer != totalCost) {
             throw new QuestionControlException("Answer is incorrect");
         }
@@ -81,7 +109,7 @@ public class QuestionControl {
     // Lots of Problems 
 
     public static void calcQuestionAnswerNegAlgebra(int number1, int number2,
-            int number3, int answer) throws QuestionControlException {
+            int number3, String answerValue) throws QuestionControlException {
         // add throws to method signature ^ 
         if (number1 < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
@@ -92,8 +120,19 @@ public class QuestionControl {
         if (number3 < 0) {
             throw new QuestionControlException("Width must be 0 or greater");
         }
-        int totalCost = number1 * number2 * number3;
-        if (answer != totalCost) {
+        
+        long total = (long)(((number3 + number2) / number3) * 100);
+        
+        long answer = 0;
+        try {
+            answer = (long)(Double.parseDouble(answerValue) * 100);
+            
+        } catch (NumberFormatException nf) {
+            throw new QuestionControlException("You must enter an integer");
+        }
+        
+        
+        if (answer != total) {
             throw new QuestionControlException("Answer is incorrect");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
@@ -102,20 +141,29 @@ public class QuestionControl {
         }
     }
 // need to change the int numberStudents, this just has numbers in it very little words
-    public static void calcQuestionAnswerPosAlgebra(int numberStudent, int numberTextbook,
-            int cost, int answer) throws QuestionControlException {
+    public static void calcQuestionAnswerPosAlgebra(int number1, int number2,
+            int number3,String answerValue) throws QuestionControlException {
         // add throws to method signature ^ 
-        if (numberStudent < 0) {
+        if (number1 < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
-        if (numberTextbook < 0) {
+        if (number2 < 0) {
             throw new QuestionControlException("Length must be 0 or greater");
         }
-        if (cost < 0) {
+        if (number3 < 0) {
             throw new QuestionControlException("Width must be 0 or greater");
         }
-        int totalCost = numberStudent * numberTextbook * cost;
-        if (answer != totalCost) {
+        long total = ((number3 + number2) * number1) * 100;
+        
+        long answer = 0;
+        try {
+            answer = (long)(Double.parseDouble(answerValue) * 100);
+            
+        } catch (NumberFormatException nf) {
+            throw new QuestionControlException("You must enter an integer");
+        }
+        
+        if (answer != total) {
             throw new QuestionControlException("Answer is incorrect");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();

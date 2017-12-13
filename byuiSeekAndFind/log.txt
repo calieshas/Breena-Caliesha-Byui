@@ -1,21 +1,4 @@
-GameMenuView - Invalid menu item.
-GameMenuView - Invalid menu item.
-GameMenuView - Invalid menu item.
-GameMenuView - Invalid menu item.
-GameMenuView - Invalid menu item.
-GameMenuView - Invalid menu item.
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - Answer is incorrect
-QuestionView - You must enter a integer
-QuestionView - Answer is incorrect
+ByuiSeekAndFind - Exception: java.lang.NullPointerException
+Cause: null
+Message: null
+ByuiSeekAndFind - Start program failed

@@ -26,7 +26,7 @@ public class MapControl {
        Game game = ByuiSeekAndFind.getCurrentGame();
        Map map = game.getMap();
        Location[][] locations = map.getLocations();
-       if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()){
+       if (newRow < 0 || newRow > map.getRowCount() || newColumn < 0 || newColumn > map.getColumnCount()){
            throw new MapControlException ("Row Count or Column Count is invalid");
        }
        int currentRow = actor.getCoordinates().x;
