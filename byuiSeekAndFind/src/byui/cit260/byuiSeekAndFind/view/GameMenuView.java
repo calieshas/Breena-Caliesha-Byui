@@ -81,26 +81,8 @@ class GameMenuView extends View {
     }
 
     private void viewMap() {
-        Game game = ByuiSeekAndFind.getCurrentGame();
-        Location[][] locations = game.getMap().getLocations();
-        this.console.println("     BYU-I Seek And Find");
-        this.console.print("     0    1    2    3    4");
-
-        for (int row = 0; row < locations.length; row++) {
-            this.console.println("\n-----------------------------");
-            this.console.print(row);
-            for (int column = 0; column < locations[row].length; column++) {
-                this.console.print(" |");
-                Location location = locations[row][column];
-                if (location.isVisited()) {
-                    this.console.print(location.getScene().getSymbol());
-                } else {
-                    this.console.print(" --");
-                }
-            }
-            this.console.print(" |");
-        }
-        this.console.println("\n-----------------------------");
+        ViewMapView viewMapView = new ViewMapView();
+        viewMapView.display();
     }
 
     private void listItems() {

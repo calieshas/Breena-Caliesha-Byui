@@ -26,7 +26,7 @@ class ViewPercentExplored extends View{
                 + "\nThe percent explored is: " + "percent" 
                 + "\n==================================================================================================================================");
 
-        inputs[0] = this.getInput("\nReturn to Game Menu");
+        inputs[0] = this.getInput("\nReturn to Game Menu by entering Q");
 
         return inputs;
     }
