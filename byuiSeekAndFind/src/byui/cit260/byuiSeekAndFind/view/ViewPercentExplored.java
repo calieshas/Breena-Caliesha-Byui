@@ -5,21 +5,44 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
+import byuiseekandfind.ByuiSeekAndFind;
+
 /**
  *
  * @author breen
  */
 class ViewPercentExplored extends View{
-
+     // how to get to getAmountRemaining() ????????????????????????????????????????????????????????????????
+     //long percent = ((.getAmountRemaining() - 25)/25)*100;
+    
+//    Location[][] locations = Location.isVisited();
+    
+    
+// fix the percent error!!!!!!!!!!!!!! in the text. the consol.println
     @Override
     public String[] getInputs() {
-        System.out.println("view percent explored called");
-        return null;
+        String[] inputs = new String[1];
+        this.console.println("=================================================================================================================================="
+                + "\nThe percent explored is: " + "percent" 
+                + "\n==================================================================================================================================");
+
+        inputs[0] = this.getInput("\nReturn to Game Menu");
+
+        return inputs;
     }
 
     @Override
     public boolean doAction(String[] inputs) {
-        System.out.println("view percent explored called");
+        String viewPercentExplored = inputs[0];
+        viewPercentExplored = viewPercentExplored.toUpperCase();
+
+        switch (viewPercentExplored) {
+            case "Q":
+                return true;
+            default:
+                ErrorView.display("ViewLocationPlayers", "Invalid menu item.");
+        }
+
         return false;
     }
     

@@ -1,4 +1,0 @@
-ByuiSeekAndFind - Exception: java.lang.NullPointerException
-Cause: null
-Message: null
-ByuiSeekAndFind - Start program failed
