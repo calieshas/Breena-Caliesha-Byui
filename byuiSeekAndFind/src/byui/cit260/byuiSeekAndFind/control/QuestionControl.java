@@ -16,8 +16,8 @@ import byuiseekandfind.ByuiSeekAndFind;
  */
 public class QuestionControl {
 
-    public static void calcQuestionAnswer(int height, int base1,
-            int base2, String answerValue) throws QuestionControlException {
+    public static void calcQuestionAnswer(int base1, int base2, 
+            int height, String answerValue) throws QuestionControlException {
         if (height < 0) {
             throw new QuestionControlException("Height must be 0 or greater");
         }
@@ -38,12 +38,7 @@ public class QuestionControl {
         }
         
         if (answer != area) {
-            throw new QuestionControlException("------------------------------------------------------\n"
-                    + "\nYour Answer is incorrect, you lost a life! \n"
-                    + "\nThe correct answer was: \n"
-                    + area
-                    + "\nYou have  + # +  lives remaining.\n"
-                    + "\n------------------------------------------------------");
+            throw new QuestionControlException("Answer is incorrect, try again!");
         }
     }
 
@@ -69,7 +64,7 @@ public class QuestionControl {
         }
         
         if (answer != volume) {
-            throw new QuestionControlException("Answer is incorrect");
+            throw new QuestionControlException("Answer is incorrect, try again!");
         }
     }
 
@@ -96,7 +91,7 @@ public class QuestionControl {
         }
         
         if (answer != totalCost) {
-            throw new QuestionControlException("Answer is incorrect");
+            throw new QuestionControlException("Answer is incorrect, try again!");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
         if (game != null) {
@@ -121,7 +116,7 @@ public class QuestionControl {
             throw new QuestionControlException("Width must be 0 or greater");
         }
         
-        long total = (long)(((number3 + number2) / number3) * 100);
+        long total = ((number3 - number2) / number1) * 100;
         
         long answer = 0;
         try {
@@ -133,7 +128,7 @@ public class QuestionControl {
         
         
         if (answer != total) {
-            throw new QuestionControlException("Answer is incorrect");
+            throw new QuestionControlException("Answer is incorrect, try again!");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
         if (game != null) {
@@ -164,7 +159,7 @@ public class QuestionControl {
         }
         
         if (answer != total) {
-            throw new QuestionControlException("Answer is incorrect");
+            throw new QuestionControlException("Answer is incorrect, try again!");
         }
         Game game = ByuiSeekAndFind.getCurrentGame();
         if (game != null) {

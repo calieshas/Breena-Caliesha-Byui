@@ -55,7 +55,11 @@ class QuestionView extends View {
 
         String hint = this.getInput("Do you want a hint Y/N");
         if (hint.toUpperCase().equals("Y")) {
-            this.console.println("a hint.");
+            this.console.println("Area of a Trapezoid = ((base1 + base2)/2)*height"
+                    + "\nVolume = height * width * length"
+                    + "\nCost = students * # of books * price"
+                    + "\nX = (number3 + number2) * number1"
+                    + "\nZ = (number3 - number2) / number1");
         }
 
         String userAnswer = this.getInput("Enter your answer:");

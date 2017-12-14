@@ -49,6 +49,7 @@ class ViewMoveActor extends View {
         Location newLocation = null;
         try {
             newLocation = MapControl.moveActor(ByuiSeekAndFind.getPlayer().getActor(), row2, column2);
+            
             this.console.println(newLocation.getScene().getDescription()); 
         } catch (MapControlException ex) {
             this.console.println(ex.getMessage());

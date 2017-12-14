@@ -19,9 +19,7 @@ import java.util.ArrayList;
  */
 public enum Actor {
     
-    Boy("John", "He is a male student attending BYU-Idaho", new Point(1,1)),
-    Girl("Jane", "She is a female student attending BYU-Idaho", new Point(1,2)),
-    Professor("Brother Jackson", "He is a professor who teaches at BYU-Idaho", new Point(1,3));
+    You("This is you", "You are attending Byu-Idaho", new Point(1,1));
     
     private String name;
     private String description;

@@ -40,19 +40,6 @@ public class SaveGameView extends View {
         this.console.println("Your Game was Saved at the following location" + filePath);
         return true;
     }
-
-//    filePath = get first value in inputs array
-// game = get the currentGame in the main class
-// try
-// call the saveGame(game)control method
-// catch GameControlException
-// Print error passed with the exception
-// return false to repeat the view
-// endTry
-// Print a success message indicating where the
-// file was saved
-// return true to end the view
-    // what is the filePath????????????????????????????????????????????????
     
 
 }

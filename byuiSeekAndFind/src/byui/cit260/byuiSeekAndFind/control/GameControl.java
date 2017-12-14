@@ -20,8 +20,10 @@ import byui.cit260.byuiSeekAndFind.model.Scene;
 import byui.cit260.byuiSeekAndFind.model.SceneType;
 import byui.cit260.byuiSeekAndFind.model.TrapScene;
 import byuiseekandfind.ByuiSeekAndFind;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
@@ -52,19 +54,22 @@ public class GameControl {
         }
     }
 
-    public static Game getGame() throws GameControlException {
-        System.out.println("getGame called");
-//        if (getGame() == null) {
-//               throw new GameControlException("Input is invaild");
-//        }
-//?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????//
-//        
-////        create a new FileInputStream for the filePath
-////        create a new ObjectInputStream from the FileOutputStream 
-//        
-////        game = call ObjectInputStream’s readObject() method set the currentGame attribute in the main 
-////        class to the game object set the player attribute in the main class to the player object saved in the game object
-        return null;
+    public static Game getGame(String filePath) throws GameControlException {
+        if (filePath == null) {
+               throw new GameControlException("Input is invaild");
+        }
+  
+        Game game = null;
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            game = (Game)in.readObject();
+            
+            ByuiSeekAndFind.setCurrentGame(game);
+            ByuiSeekAndFind.setPlayer(game.getPlayer());
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new GameControlException(ex.getMessage());
+        }
+        
+         return game;
 }
 
     
@@ -78,7 +83,7 @@ public class GameControl {
         game.setPlayer(player);
         ByuiSeekAndFind.setCurrentGame(game);
 
-        player.setActor(Actor.Girl);
+        player.setActor(Actor.You);
 
         Item[] items = GameControl.createItems();
         game.setItems(items);
@@ -97,45 +102,37 @@ public class GameControl {
 
         Item textbook = new Item();
         textbook.setItemType("Textbook");
-        textbook.setNumberInPossesion(0);
+        textbook.setNumberInPossession(0);
         textbook.setItemNeeded("Textbook");
         items[ItemType.textbook.ordinal()] = textbook;
 
         Item phone = new Item();
         phone.setItemType("phone");
-        phone.setNumberInPossesion(0);
+        phone.setNumberInPossession(0);
         phone.setItemNeeded("phone");
         items[ItemType.phone.ordinal()] = phone;
 
         Item computer = new Item();
         computer.setItemType("computer");
-        computer.setNumberInPossesion(0);
+        computer.setNumberInPossession(0);
         computer.setItemNeeded("computer");
         items[ItemType.computer.ordinal()] = computer;
 
         Item significant = new Item();
         significant.setItemType("Significant Other");
-        significant.setNumberInPossesion(0);
+        significant.setNumberInPossession(0);
         significant.setItemNeeded("Significant Other");
         items[ItemType.significant.ordinal()] = significant;
 
         Item professor = new Item();
         professor.setItemType("Professor");
-        professor.setNumberInPossesion(0);
+        professor.setNumberInPossession(0);
         professor.setItemNeeded("Professor");
         items[ItemType.professor.ordinal()] = professor;
 
         return items;
     }
-//    int SumListOfItems() {
-//       NumberInPossesion items = NumberInPossesion.values();
-//       int sum = 0;
-//        for (numberInPossesion item : items) {
-//            sum ++;
-//    }
-//        return sum;
-//    }
-
+    
     public static Map createMap(int rowCount, int columnCount, Item[] items) throws GameControlException {
 
         if (rowCount < 0 || columnCount < 0) {
@@ -311,8 +308,7 @@ public class GameControl {
         scene25.setDescription("Blank Scene");
         scenes[SceneType.blank.ordinal()] = scene25;
 
-//-------------------------- ... ---------------------------------        
-//        System.out.println("CreateScenes() called");
+        
         return scenes;
     }
 
@@ -320,25 +316,26 @@ public class GameControl {
         Question[] questions = new Question[5];
 
         Question question1 = new Question();
-        question1.setQuestionType(QuestionType.volume);
+        question1.setQuestionType(QuestionType.area);
         question1.setAnswer(1);
         String question
-                = "A table has a height of randomNumber1"
-                + " and has a top length of randomNumber2 and a bottom length of "
-                + "randomNumber3 what is the area of the table?";
+                = "A trapezoid has a base1 of randomNumber1"
+                + " and has a base2 of randomNumber2 and a height of "
+                + "randomNumber3 what is the area of the trapezoid?";
 
         question1.setQuestionDescription(question);
-        questions[QuestionType.volume.ordinal()] = question1;
+        questions[QuestionType.area.ordinal()] = question1;
+        
 
         Question question2 = new Question();
-        question2.setQuestionType(QuestionType.area);
+        question2.setQuestionType(QuestionType.volume);
         question2.setAnswer(1);
         question
                 = "A room has a height of randomNumber1"
                 + " and length of randomNumber2 and a width of "
                 + "randomNumber3 what is the volume of the room?";
         question2.setQuestionDescription(question);
-        questions[QuestionType.area.ordinal()] = question2;
+        questions[QuestionType.volume.ordinal()] = question2;
 
         Question question3 = new Question();
         question3.setQuestionType(QuestionType.textbook);
@@ -363,12 +360,11 @@ public class GameControl {
         question5.setQuestionType(QuestionType.negAlgebra);
         question5.setAnswer(1);
         question
-                = "randomNumber1 + randomNumber2 / z = randomNumber3 "
+                = "randomNumber1 * z + randomNumber2 = randomNumber3 "
                 + "Solve for z.";
         question5.setQuestionDescription(question);
         questions[QuestionType.negAlgebra.ordinal()] = question5;
 
-//----------------------------------- ... --------------------------------------
         return questions;
     }
 
@@ -435,10 +431,6 @@ public class GameControl {
         locations[4][3].setScene(scenes[SceneType.blank.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.blank.ordinal()]);
     }
-//    public static void test(String [] args) {
-//        ItemControl test1 = new ItemControl();
-//        int aVal = test1.SumListOfItems();
-//        System.out.println("Results = " + aVal);
-//    }
+
 
 }

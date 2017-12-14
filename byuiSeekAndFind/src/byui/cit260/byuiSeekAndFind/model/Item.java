@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Item implements Serializable {
     
     private String itemType; 
-    private double numberInPossesion;
+    private int numberInPossession;
     private String itemNeeded;
 
     public Item() {
@@ -29,12 +29,12 @@ public class Item implements Serializable {
         this.itemType = itemType;
     }
 
-    public double getNumberInPossesion() {
-        return numberInPossesion;
+    public int getNumberInPossession() {
+        return numberInPossession;
     }
 
-    public void setNumberInPossesion(double numberInPossesion) {
-        this.numberInPossesion = numberInPossesion;
+    public void setNumberInPossession(int numberInPossesion) {
+        this.numberInPossession = numberInPossesion;
     }
 
     public String getItemNeeded() {
@@ -49,14 +49,14 @@ public class Item implements Serializable {
     public int hashCode() {
         int hash = 3;
         hash = 29 * hash + java.util.Objects.hashCode(this.itemType);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.numberInPossesion) ^ (Double.doubleToLongBits(this.numberInPossesion) >>> 32));
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.numberInPossession) ^ (Double.doubleToLongBits(this.numberInPossession) >>> 32));
         hash = 29 * hash + java.util.Objects.hashCode(this.itemNeeded);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Item{" + "itemType=" + itemType + ", numberInPossesion=" + numberInPossesion + ", itemNeeded=" + itemNeeded + '}';
+        return "Item{" + "itemType=" + itemType + ", numberInPossesion=" + numberInPossession + ", itemNeeded=" + itemNeeded + '}';
     }
 
     
@@ -73,7 +73,7 @@ public class Item implements Serializable {
             return false;
         }
         final Item other = (Item) obj;
-        if (Double.doubleToLongBits(this.numberInPossesion) != Double.doubleToLongBits(other.numberInPossesion)) {
+        if (Double.doubleToLongBits(this.numberInPossession) != Double.doubleToLongBits(other.numberInPossession)) {
             return false;
         }
         if (!java.util.Objects.equals(this.itemType, other.itemType)) {

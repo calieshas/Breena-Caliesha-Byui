@@ -32,9 +32,10 @@ public abstract class View implements ViewInterface {
         boolean endView = false;
         do {
             String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q")
+            if (inputs == null
+                    || inputs[0].toUpperCase().equals("Q")
                     || inputs.length < 1
-                    || inputs == null) {
+                    ) {
                 return;
             }
 

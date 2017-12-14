@@ -26,8 +26,7 @@ class GameMenuView extends View {
                 + "\nChoose one of the following:"
                 + "\nV - View Map"
                 + "\nI - View list of items"
-                + "\nA - View list of actors"
-                + "\nL - View location of actors"
+                + "\nL - View your location"
                 + "\nP - View percent explored"
                 + "\nM - Move actor to new location"
                 + "\nS - Save the Game"
@@ -53,9 +52,6 @@ class GameMenuView extends View {
             case "I":
                 listItems();
                 break;
-            case "A":
-                listActors();
-                break;
             case "L":
                 locationPlayers();
                 break;
@@ -63,7 +59,10 @@ class GameMenuView extends View {
                 percentExplored();
                 break;
             case "M":
-                movePerson();
+                boolean gameOver = movePerson();
+                if(gameOver){
+                    return true;
+                }
                 break;
             case "S":
                 saveGame();
@@ -105,9 +104,15 @@ class GameMenuView extends View {
         viewPercentExplored.display();
     }
 
-    private void movePerson() {
+    private boolean movePerson() {
         ViewMoveActor viewMoveActor = new ViewMoveActor();
         viewMoveActor.display();
+        if (ByuiSeekAndFind.getCurrentGame().getTotalNoInPossession() == 5){
+           GameOverView gameOverView = new GameOverView();
+            gameOverView.display(); 
+            return true;
+        }
+        return false;
     }
 
     private void getHelp() {

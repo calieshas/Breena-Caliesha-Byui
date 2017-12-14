@@ -18,7 +18,6 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
-    private String amountRemaining;
     private Scene scene;
     private ArrayList<Actor> actors = new ArrayList<>();
 
@@ -65,31 +64,24 @@ public class Location implements Serializable {
         this.visited = visited;
     }
 
-    public String getAmountRemaining() {
-        return amountRemaining;
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + ", actors=" + actors + '}';
     }
 
-    public void setAmountRemaining(String amountRemaining) {
-        this.amountRemaining = amountRemaining;
-    }
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.row);
-        hash = 97 * hash + Objects.hashCode(this.column);
-        hash = 97 * hash + Objects.hashCode(this.visited);
-        hash = 97 * hash + Objects.hashCode(this.amountRemaining);
+        hash = 23 * hash + this.row;
+        hash = 23 * hash + this.column;
+        hash = 23 * hash + (this.visited ? 1 : 0);
+        hash = 23 * hash + Objects.hashCode(this.scene);
+        hash = 23 * hash + Objects.hashCode(this.actors);
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
-    }
-
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -102,22 +94,24 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (!Objects.equals(this.row, other.row)) {
+        if (this.row != other.row) {
             return false;
         }
-        if (!Objects.equals(this.column, other.column)) {
+        if (this.column != other.column) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (this.visited != other.visited) {
             return false;
         }
-        if (!Objects.equals(this.amountRemaining, other.amountRemaining)) {
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.actors, other.actors)) {
             return false;
         }
         return true;
     }
-    
-    
+
     
     
 }

@@ -5,25 +5,21 @@
  */
 package byui.cit260.byuiSeekAndFind.view;
 
-import byuiseekandfind.ByuiSeekAndFind;
-import java.awt.Point;
+import byui.cit260.byuiSeekAndFind.model.Item;
 
 /**
  *
- * @author breen
+ * @author calie
  */
-class ViewLocationPlayers extends View{
-
-    Point youLocation = ByuiSeekAndFind.getPlayer().getActor().You.getCoordinates();
+public class GameOverView extends View{
     
-
     public String[] getInputs() {
 
         String[] inputs = new String[1];
         this.console.println("=================================================================================================================================="
-                + "\nYour current Location is: "
-                + youLocation
-                + "\nQ - Quit"
+                + "CONGRATULATIONS YOU WON THE GAME!!!!!!!!!"
+                + "\n Thanks For Playing"
+                + "\n You found all 5 Items"
                 + "\n==================================================================================================================================");
 
         inputs[0] = this.getInput("\nReturn to Game Menu");
@@ -32,17 +28,18 @@ class ViewLocationPlayers extends View{
     }
 
     public boolean doAction(String[] inputs) {
-        String viewLocationPlayers = inputs[0];
-        viewLocationPlayers = viewLocationPlayers.toUpperCase();
+        String ViewOver = inputs[0];
+        ViewOver = ViewOver.toUpperCase();
 
-        switch (viewLocationPlayers) {
+        switch (ViewOver) {
             case "Q":
                 return true;
             default:
-                ErrorView.display("ViewLocationPlayers", "Invalid menu item.");
+                ErrorView.display("GameOverView", "Invalid menu item.");
         }
 
         return false;
     }
     
 }
+

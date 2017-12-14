@@ -29,7 +29,7 @@ public class StartSavedGameView extends View {
     public boolean doAction(String[] inputs) {
         String filePath = inputs[0];
         try {
-           Game game = GameControl.getGame();
+           Game game = GameControl.getGame(filePath);
         } catch (GameControlException ex) {
             ErrorView.display("SaveGameView", ex.getMessage());
             return false;
@@ -39,18 +39,5 @@ public class StartSavedGameView extends View {
         gameMenuView.display();
         return true;
     }
-    
-//    private boolean doAction(String [] inputs) {
-// filePath = get first value in inputs array
-// try
-// call the getGame() control method
-// catch GameControlException
-// Print error passed with the exception
-// return false to repeat the view
-// endTry
-// gameMenuView = Create a new GameMenuView object
-// display the gameMenuView
-// return true to end the view
-//}
 
 }

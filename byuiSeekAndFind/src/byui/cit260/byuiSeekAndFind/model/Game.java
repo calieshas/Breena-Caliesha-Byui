@@ -20,6 +20,7 @@ public class Game implements Serializable {
     private double totalTime;
     private Player player;
     private Map map;
+    private int totalNoInPossession = 0;
     Item[] items = new Item[noOfItems];
  //   private Arraylist <Item> items = new Arraylist<Item>();
     private ArrayList <Actor> actors = new ArrayList<Actor>();
@@ -28,6 +29,24 @@ public class Game implements Serializable {
     
     public Game() {
     }
+
+    public int getNoOfItems() {
+        return noOfItems;
+    }
+
+    public void setNoOfItems(int noOfItems) {
+        this.noOfItems = noOfItems;
+    }
+
+    public int getTotalNoInPossession() {
+        return totalNoInPossession;
+    }
+
+    public void setTotalNoInPossession(int totalNoInPossession) {
+        this.totalNoInPossession = totalNoInPossession;
+    }
+    
+    
 
     public Question[] getQuestions() {
         return questions;
